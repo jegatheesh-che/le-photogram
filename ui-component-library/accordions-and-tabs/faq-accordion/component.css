@@ -1,0 +1,97 @@
+/* ==========================================================================
+   MINIMAL LUXURY FAQ ACCORDION - COMPONENT STYLES
+   ========================================================================== */
+
+.faq-minimal-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-minimal-item {
+  border-top: 1px solid var(--color-border, rgba(20, 20, 20, 0.12));
+  transition: background-color 0.25s ease;
+}
+
+.faq-minimal-item:last-child {
+  border-bottom: 1px solid var(--color-border, rgba(20, 20, 20, 0.12));
+}
+
+.faq-minimal-btn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48px 1fr 32px;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-minimal-num {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--theme-crimson-blaze, #800A19);
+}
+
+.faq-minimal-q {
+  font-family: var(--font-accent, 'Cormorant Garamond', serif);
+  font-size: clamp(20px, 2.2vw, 25px);
+  font-weight: 700;
+  color: #121212;
+  transition: color 0.2s ease;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+}
+
+.faq-minimal-btn:hover .faq-minimal-q {
+  color: var(--theme-crimson-blaze, #800A19);
+}
+
+.faq-minimal-icon {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--theme-ink-black, #141414);
+  line-height: 1;
+  text-align: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.faq-minimal-item.active .faq-minimal-icon {
+  transform: rotate(45deg);
+  color: var(--theme-crimson-blaze, #800A19);
+}
+
+.faq-minimal-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 8px 0 64px;
+}
+
+.faq-minimal-answer {
+  padding-bottom: 28px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--theme-ink-muted, #555555);
+}
+
+@media (max-width: 640px) {
+  .faq-minimal-btn {
+    grid-template-columns: 36px 1fr 24px;
+    padding: 20px 4px;
+    gap: 10px;
+  }
+
+  .faq-minimal-panel {
+    padding: 0 4px 0 46px;
+  }
+}

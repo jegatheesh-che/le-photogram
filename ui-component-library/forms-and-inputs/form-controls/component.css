@@ -1,0 +1,112 @@
+/* ==========================================================================
+   REFINED FORM CONTROLS & FIELD GROUPS - COMPONENT STYLES
+   ========================================================================== */
+
+.form-controls-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.ref-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.ref-label {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1F1F1F;
+  letter-spacing: -0.01em;
+}
+
+.ref-input {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14px;
+  line-height: 1.4;
+  color: #111111;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ref-input::placeholder {
+  color: #9E9E9E;
+  font-size: 13.5px;
+  font-weight: 400;
+}
+
+.ref-input:hover {
+  border-color: #D0D0D0;
+}
+
+.ref-input:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.ref-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.ref-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ref-pill-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ref-pill-label input {
+  display: none;
+}
+
+.ref-pill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid #E5E5E5;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  color: #4A4A4A;
+  transition: all 0.2s ease;
+}
+
+.ref-pill-label:hover .ref-pill-chip {
+  border-color: #111111;
+  color: #111111;
+}
+
+.ref-pill-label input:checked + .ref-pill-chip {
+  background-color: #111111;
+  color: #FFFFFF;
+  border-color: #111111;
+}
+
+.ref-textarea {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.5;
+}

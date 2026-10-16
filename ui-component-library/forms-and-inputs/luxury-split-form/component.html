@@ -1,0 +1,82 @@
+<!-- ==========================================================================
+     LUXURY SPLIT REGISTRATION & INQUIRY FORM
+     Architectural 2-column layout:
+     - Left Half: Full-bleed golden hour estate photography with floating translucent badge
+     - Right Half: Navigation tabs, back action, registration form with clean inputs,
+       HTML5 date picker trigger, textarea, submit loading state, and trust disclosure
+     ========================================================================== -->
+
+<div class="contact-luxury-split" id="luxurySplitForm">
+  <!-- Left Split Media -->
+  <div class="contact-split-media">
+    <div class="contact-media-badge">
+      <span>PRIVATE CALENDAR &bull; 2026/27</span>
+    </div>
+    <img src="../../assets/images/img18.webp" alt="Villa Colonnade at Golden Hour" />
+  </div>
+
+  <!-- Right Split Content -->
+  <div class="contact-split-content">
+    <div class="ref-form-card">
+      <div class="ref-form-top-bar">
+        <button type="button" class="ref-back-btn" aria-label="Go back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <h2 class="ref-form-title">Registration form</h2>
+
+      <form id="sampleBookingForm" class="ref-form">
+        <!-- Name -->
+        <div class="ref-field-group full-width">
+          <label for="reg-name" class="ref-label">Name</label>
+          <input type="text" id="reg-name" name="name" class="ref-input" placeholder="Enter your full name" required autocomplete="name" />
+        </div>
+
+        <!-- Email -->
+        <div class="ref-field-group full-width">
+          <label for="reg-email" class="ref-label">Email</label>
+          <input type="email" id="reg-email" name="email" class="ref-input" placeholder="Enter your email address" required autocomplete="email" />
+        </div>
+
+        <!-- Phone & Date Row -->
+        <div class="ref-form-row">
+          <div class="ref-field-group">
+            <label for="reg-phone" class="ref-label">Phone number</label>
+            <input type="tel" id="reg-phone" name="phone" class="ref-input" placeholder="Enter your phone number" required autocomplete="tel" />
+          </div>
+
+          <div class="ref-field-group ref-date-group">
+            <label for="reg-date" class="ref-label">Celebration Date</label>
+            <div class="ref-date-picker-wrap">
+              <input type="date" id="reg-date" name="wedding_date" class="ref-input ref-date-input" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- City -->
+        <div class="ref-field-group full-width">
+          <label for="reg-city" class="ref-label">Celebration Destination</label>
+          <input type="text" id="reg-city" name="city" class="ref-input" placeholder="e.g. Lake Como, Provence, Amalfi, Paris" required />
+        </div>
+
+        <!-- Notes -->
+        <div class="ref-field-group full-width">
+          <label for="reg-notes" class="ref-label">Notes &amp; Vision</label>
+          <textarea id="reg-notes" name="notes" class="ref-input ref-textarea" rows="3" placeholder="Tell us about your celebration atmosphere, guest count, or vision..."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="ref-submit-wrap">
+          <button type="submit" class="ref-submit-btn">Submit form</button>
+        </div>
+
+        <p class="ref-trust-note">
+          Discreet atelier privacy guaranteed. Your details are held in complete confidence.
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

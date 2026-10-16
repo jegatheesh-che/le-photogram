@@ -1,0 +1,84 @@
+<!-- ==========================================================================
+     CINEMATIC FILM SLIDER TRACK
+     Draggable horizontal carousel with momentum snap, touch swipe,
+     and circular arrow navigation controls.
+     ========================================================================== -->
+
+<div class="film-slider-container" id="filmSliderTrack">
+  <div class="film-track-header">
+    <div class="film-track-meta">
+      <span class="film-track-tag">MOTION PICTURE ARCHIVE</span>
+      <h3 class="film-track-title">Cinematic Wedding Reels</h3>
+    </div>
+    <div class="carousel-arrows">
+      <button type="button" class="arrow-btn film-prev-btn" aria-label="Previous film reel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+      <button type="button" class="arrow-btn film-next-btn" aria-label="Next film reel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="film-track-container">
+    <div class="film-track">
+      <!-- Reel 1 -->
+      <div class="film-slide">
+        <video class="film-video" autoplay loop muted playsinline poster="../../assets/images/img1.webp">
+          <source src="../../assets/videos/hero-preview.mp4" type="video/mp4">
+        </video>
+        <div class="film-slide-scrim" aria-hidden="true"></div>
+        <div class="film-slide-info">
+          <h4 class="film-slide-title">Lake Como &bull; Villa Balbiano</h4>
+          <span class="film-slide-meta">Super-8mm &bull; 4K Motion Picture</span>
+        </div>
+        <a href="#reel-1" class="btn-pill-dark film-slide-btn">Watch Film</a>
+      </div>
+
+      <!-- Reel 2 -->
+      <div class="film-slide">
+        <video class="film-video" autoplay loop muted playsinline poster="../../assets/images/img2.webp">
+          <source src="../../assets/videos/hero-preview.mp4" type="video/mp4">
+        </video>
+        <div class="film-slide-scrim" aria-hidden="true"></div>
+        <div class="film-slide-info">
+          <h4 class="film-slide-title">Provence &bull; Ch&acirc;teau de Tourreau</h4>
+          <span class="film-slide-meta">Super-8mm &bull; 4K Motion Picture</span>
+        </div>
+        <a href="#reel-2" class="btn-pill-dark film-slide-btn">Watch Film</a>
+      </div>
+
+      <!-- Reel 3 -->
+      <div class="film-slide">
+        <video class="film-video" autoplay loop muted playsinline poster="../../assets/images/img3.webp">
+          <source src="../../assets/videos/hero-preview.mp4" type="video/mp4">
+        </video>
+        <div class="film-slide-scrim" aria-hidden="true"></div>
+        <div class="film-slide-info">
+          <h4 class="film-slide-title">Amalfi &bull; Ravello Clifftop</h4>
+          <span class="film-slide-meta">Super-8mm &bull; 4K Motion Picture</span>
+        </div>
+        <a href="#reel-3" class="btn-pill-dark film-slide-btn">Watch Film</a>
+      </div>
+
+      <!-- Reel 4 -->
+      <div class="film-slide">
+        <video class="film-video" autoplay loop muted playsinline poster="../../assets/images/img4.webp">
+          <source src="../../assets/videos/hero-preview.mp4" type="video/mp4">
+        </video>
+        <div class="film-slide-scrim" aria-hidden="true"></div>
+        <div class="film-slide-info">
+          <h4 class="film-slide-title">Paris &bull; Private H&ocirc;tel Particulier</h4>
+          <span class="film-slide-meta">Super-8mm &bull; 4K Motion Picture</span>
+        </div>
+        <a href="#reel-4" class="btn-pill-dark film-slide-btn">Watch Film</a>
+      </div>
+    </div>
+  </div>
+</div>

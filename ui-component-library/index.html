@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le PhotoGRAM — Architectural UI Component Library &amp; Living Styleguide</title>
+  <link rel="icon" type="image/png" href="assets/brand/favicon.png">
+  
+  <!-- Core Design Tokens -->
+  <link rel="stylesheet" href="design-tokens/tokens.css">
+
+  <!-- Component Stylesheets -->
+  <link rel="stylesheet" href="navigation/kinfolk-header/component.css">
+  <link rel="stylesheet" href="navigation/mobile-bottom-sheet/component.css">
+  <link rel="stylesheet" href="navigation/whatsapp-floating-action/component.css">
+
+  <link rel="stylesheet" href="hero-sections/cinematic-video-hero/component.css">
+  <link rel="stylesheet" href="hero-sections/editorial-portrait-hero/component.css">
+  <link rel="stylesheet" href="hero-sections/services-plaque-hero/component.css">
+  <link rel="stylesheet" href="hero-sections/atmospheric-hero-banner/component.css">
+
+  <link rel="stylesheet" href="cards/editorial-triptych-card/component.css">
+  <link rel="stylesheet" href="cards/work-case-study-card/component.css">
+  <link rel="stylesheet" href="cards/curated-testimonial-card/component.css">
+  <link rel="stylesheet" href="cards/editorial-pullquote-card/component.css">
+  <link rel="stylesheet" href="cards/film-slide-card/component.css">
+  <link rel="stylesheet" href="cards/contact-channel-card/component.css">
+  <link rel="stylesheet" href="cards/cinematic-floating-card/component.css">
+
+  <link rel="stylesheet" href="buttons/editorial-buttons/component.css">
+  <link rel="stylesheet" href="buttons/carousel-arrow-buttons/component.css">
+
+  <link rel="stylesheet" href="layouts-and-grids/services-axis-timeline/component.css">
+  <link rel="stylesheet" href="layouts-and-grids/atelier-team-spread/component.css">
+  <link rel="stylesheet" href="layouts-and-grids/stats-counter-grid/component.css">
+  <link rel="stylesheet" href="layouts-and-grids/editorial-story-split/component.css">
+  <link rel="stylesheet" href="layouts-and-grids/section-header-pattern/component.css">
+
+  <link rel="stylesheet" href="galleries/portfolio-mosaic-grid/component.css">
+  <link rel="stylesheet" href="galleries/allure-split-slideshow/component.css">
+  <link rel="stylesheet" href="galleries/film-slider-track/component.css">
+  <link rel="stylesheet" href="galleries/case-study-gallery/component.css">
+
+  <link rel="stylesheet" href="forms-and-inputs/luxury-split-form/component.css">
+  <link rel="stylesheet" href="forms-and-inputs/form-controls/component.css">
+
+  <link rel="stylesheet" href="accordions-and-tabs/faq-accordion/component.css">
+  <link rel="stylesheet" href="accordions-and-tabs/category-filter-bar/component.css">
+
+  <link rel="stylesheet" href="testimonials/testimonial-quote-carousel/component.css">
+  <link rel="stylesheet" href="testimonials/curated-testimonials-grid/component.css">
+
+  <link rel="stylesheet" href="modals-and-overlays/zoom-lightbox-modal/component.css">
+
+  <link rel="stylesheet" href="footers/kinfolk-footer/component.css">
+
+  <link rel="stylesheet" href="animations-and-effects/parallax-frame/component.css">
+  <link rel="stylesheet" href="animations-and-effects/dolly-zoom/component.css">
+  <link rel="stylesheet" href="animations-and-effects/rotating-seal-emblem/component.css">
+  <link rel="stylesheet" href="animations-and-effects/curtain-reveal/component.css">
+
+  <link rel="stylesheet" href="badges-and-decorations/editorial-annotations/component.css">
+
+  <style>
+    /* ==========================================================================
+       LIVING COMPONENT SHOWCASE SHELL STYLES
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans, "Instrument Sans", sans-serif);
+      background-color: var(--color-porcelain, #FAF8F5);
+      color: var(--color-ink, #141414);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Layout Frame */
+    .catalog-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .catalog-sidebar {
+      width: 290px;
+      background-color: #FFFFFF;
+      border-right: 1px solid var(--color-border-warm, #EAE6DC);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      z-index: 100;
+    }
+
+    .catalog-sidebar-header {
+      padding: 28px 24px 20px 24px;
+      border-bottom: 1px solid var(--color-border-warm, #EAE6DC);
+      background: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .catalog-brand-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-crimson, #800A19);
+      background: rgba(128, 10, 25, 0.08);
+      padding: 4px 8px;
+      margin-bottom: 8px;
+    }
+
+    .catalog-title {
+      font-family: var(--font-serif-title, "Italiana", serif);
+      font-size: 1.5rem;
+      line-height: 1.2;
+      color: var(--color-ink, #141414);
+      letter-spacing: -0.01em;
+    }
+
+    .catalog-search-wrap {
+      margin-top: 14px;
+    }
+
+    .catalog-search-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--color-border-warm, #EAE6DC);
+      font-family: var(--font-sans, "Instrument Sans", sans-serif);
+      font-size: 12px;
+      background: var(--color-porcelain, #FAF8F5);
+      color: var(--color-ink, #141414);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .catalog-search-input:focus {
+      border-color: var(--color-crimson, #800A19);
+      background: #FFFFFF;
+    }
+
+    .catalog-nav-tree {
+      padding: 16px 0;
+      flex-grow: 1;
+    }
+
+    .catalog-nav-category {
+      margin-bottom: 16px;
+    }
+
+    .catalog-category-heading {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted, #777777);
+      padding: 6px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .catalog-category-count {
+      font-size: 9px;
+      color: var(--color-crimson, #800A19);
+      background: rgba(128, 10, 25, 0.08);
+      padding: 1px 6px;
+    }
+
+    .catalog-nav-list {
+      list-style: none;
+    }
+
+    .catalog-nav-link {
+      display: block;
+      padding: 6px 24px;
+      font-size: 12.5px;
+      color: var(--color-ink, #141414);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .catalog-nav-link:hover {
+      background-color: var(--color-porcelain, #FAF8F5);
+      color: var(--color-crimson, #800A19);
+      border-left-color: var(--color-crimson, #800A19);
+    }
+
+    /* Main Content Area */
+    .catalog-main {
+      flex-grow: 1;
+      padding: 40px 48px 120px 48px;
+      max-width: calc(100% - 290px);
+      box-sizing: border-box;
+    }
+
+    .catalog-hero-banner {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-warm, #EAE6DC);
+      padding: 40px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .catalog-hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-crimson, #800A19);
+      margin-bottom: 12px;
+    }
+
+    .catalog-hero-headline {
+      font-family: var(--font-serif-title, "Italiana", serif);
+      font-size: 2.75rem;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--color-ink, #141414);
+    }
+
+    .catalog-hero-lead {
+      font-family: var(--font-serif-body, "Cormorant Garamond", Georgia, serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--color-ink-muted, #555555);
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    .catalog-stats-row {
+      display: flex;
+      gap: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border-warm, #EAE6DC);
+      flex-wrap: wrap;
+    }
+
+    .catalog-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalog-stat-val {
+      font-family: var(--font-serif-title, "Italiana", serif);
+      font-size: 1.75rem;
+      color: var(--color-crimson, #800A19);
+      line-height: 1;
+    }
+
+    .catalog-stat-lbl {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-faint, #888888);
+      margin-top: 4px;
+    }
+
+    /* Section & Component Cards */
+    .catalog-category-section {
+      margin-bottom: 64px;
+    }
+
+    .category-title-bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--color-ink, #141414);
+      padding-bottom: 12px;
+      margin-bottom: 32px;
+    }
+
+    .category-main-title {
+      font-family: var(--font-serif-title, "Italiana", serif);
+      font-size: 2rem;
+      color: var(--color-ink, #141414);
+    }
+
+    .category-badge-pill {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-crimson, #800A19);
+    }
+
+    .component-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-warm, #EAE6DC);
+      margin-bottom: 36px;
+      overflow: hidden;
+    }
+
+    .component-header {
+      padding: 16px 24px;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--color-border-warm, #EAE6DC);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .component-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-name {
+      font-family: var(--font-sans, "Instrument Sans", sans-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-ink, #141414);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .component-path-tag {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--color-ink-muted, #777777);
+      margin-top: 2px;
+    }
+
+    .component-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .catalog-btn {
+      padding: 6px 12px;
+      font-family: var(--font-sans, "Instrument Sans", sans-serif);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--color-border-warm, #EAE6DC);
+      background: #FFFFFF;
+      color: var(--color-ink, #141414);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .catalog-btn:hover {
+      border-color: var(--color-crimson, #800A19);
+      color: var(--color-crimson, #800A19);
+    }
+
+    .catalog-btn.active {
+      background: var(--color-crimson, #800A19);
+      border-color: var(--color-crimson, #800A19);
+      color: #FFFFFF;
+    }
+
+    /* Live Preview Stage */
+    .component-stage {
+      padding: 36px 24px;
+      background: var(--color-porcelain, #FAF8F5);
+      position: relative;
+      overflow-x: auto;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .component-stage.stage-dark {
+      background: #141414;
+    }
+
+    /* Code Drawer */
+    .component-code-drawer {
+      display: none;
+      background: #191B1F;
+      color: #E6EDF3;
+      padding: 20px 24px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      max-height: 320px;
+      overflow: auto;
+      border-top: 1px solid #2D333B;
+      position: relative;
+    }
+
+    .component-code-drawer.open {
+      display: block;
+    }
+
+    .copy-snippet-btn {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-family: var(--font-sans, "Instrument Sans", sans-serif);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-snippet-btn:hover {
+      background: var(--color-crimson, #800A19);
+      border-color: var(--color-crimson, #800A19);
+    }
+
+    @media (max-width: 1024px) {
+      .catalog-sidebar {
+        display: none;
+      }
+      .catalog-main {
+        max-width: 100%;
+        padding: 24px 16px 80px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden Lightbox Stage (for Lightbox triggers) -->
+  <div class="gallery-lightbox" id="siteLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="gallery-lightbox-close" id="lightboxCloseBtn" aria-label="Close zoomed view">&times;</button>
+    <div class="gallery-lightbox-stage">
+      <img src="" alt="" class="gallery-lightbox-img" id="lightboxActiveImg" />
+      <div class="gallery-lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <div class="catalog-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="catalog-sidebar">
+      <div class="catalog-sidebar-header">
+        <span class="catalog-brand-badge">UI Component Library</span>
+        <h1 class="catalog-title">Le PhotoGRAM</h1>
+        <div class="catalog-search-wrap">
+          <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Search 38 components..." />
+        </div>
+      </div>
+
+      <nav class="catalog-nav-tree">
+        <!-- 1. Design Tokens -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>00. Foundation</span>
+            <span class="catalog-category-count">1</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cat-tokens" class="catalog-nav-link">Design Tokens (60-30-10)</a></li>
+          </ul>
+        </div>
+
+        <!-- 2. Navigation -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>01. Navigation</span>
+            <span class="catalog-category-count">3</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-kinfolk-header" class="catalog-nav-link">Kinfolk 3-Zone Header</a></li>
+            <li><a href="#cmp-mobile-bottom-sheet" class="catalog-nav-link">Mobile Bottom-Sheet Modal</a></li>
+            <li><a href="#cmp-whatsapp-floating-action" class="catalog-nav-link">WhatsApp Floating Action</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. Hero Sections -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>02. Hero Sections</span>
+            <span class="catalog-category-count">4</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-cinematic-video-hero" class="catalog-nav-link">Cinematic Video Hero</a></li>
+            <li><a href="#cmp-editorial-portrait-hero" class="catalog-nav-link">Editorial Portrait Hero</a></li>
+            <li><a href="#cmp-services-plaque-hero" class="catalog-nav-link">Services Plaque Hero</a></li>
+            <li><a href="#cmp-atmospheric-hero-banner" class="catalog-nav-link">Atmospheric Hero Banner</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. Cards -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>03. Cards</span>
+            <span class="catalog-category-count">7</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-editorial-triptych-card" class="catalog-nav-link">Editorial Triptych Card</a></li>
+            <li><a href="#cmp-work-case-study-card" class="catalog-nav-link">Work Case Study Card</a></li>
+            <li><a href="#cmp-curated-testimonial-card" class="catalog-nav-link">Curated Testimonial Card</a></li>
+            <li><a href="#cmp-editorial-pullquote-card" class="catalog-nav-link">Editorial Pullquote Card</a></li>
+            <li><a href="#cmp-film-slide-card" class="catalog-nav-link">Film Slide Reel Card</a></li>
+            <li><a href="#cmp-contact-channel-card" class="catalog-nav-link">Contact Channel Card</a></li>
+            <li><a href="#cmp-cinematic-floating-card" class="catalog-nav-link">Cinematic Floating Card</a></li>
+          </ul>
+        </div>
+
+        <!-- 5. Buttons -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>04. Buttons</span>
+            <span class="catalog-category-count">2</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-editorial-buttons" class="catalog-nav-link">Editorial Pill Buttons (4 styles)</a></li>
+            <li><a href="#cmp-carousel-arrow-buttons" class="catalog-nav-link">Carousel Arrow Buttons</a></li>
+          </ul>
+        </div>
+
+        <!-- 6. Layouts & Grids -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>05. Layouts &amp; Grids</span>
+            <span class="catalog-category-count">5</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-services-axis-timeline" class="catalog-nav-link">Services Axis Timeline</a></li>
+            <li><a href="#cmp-atelier-team-spread" class="catalog-nav-link">Atelier Team Spread</a></li>
+            <li><a href="#cmp-stats-counter-grid" class="catalog-nav-link">Stats Counter Grid (Count-Up)</a></li>
+            <li><a href="#cmp-editorial-story-split" class="catalog-nav-link">Editorial Story Split</a></li>
+            <li><a href="#cmp-section-header-pattern" class="catalog-nav-link">Section Header Pattern</a></li>
+          </ul>
+        </div>
+
+        <!-- 7. Galleries -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>06. Galleries</span>
+            <span class="catalog-category-count">4</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-portfolio-mosaic-grid" class="catalog-nav-link">Portfolio Mosaic Grid</a></li>
+            <li><a href="#cmp-allure-split-slideshow" class="catalog-nav-link">Allure Split Slideshow</a></li>
+            <li><a href="#cmp-film-slider-track" class="catalog-nav-link">Film Slider Momentum Track</a></li>
+            <li><a href="#cmp-case-study-gallery" class="catalog-nav-link">Case Study Gallery Spread</a></li>
+          </ul>
+        </div>
+
+        <!-- 8. Forms & Inputs -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>07. Forms &amp; Inputs</span>
+            <span class="catalog-category-count">2</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-luxury-split-form" class="catalog-nav-link">Luxury Split Booking Form</a></li>
+            <li><a href="#cmp-form-controls" class="catalog-nav-link">Form Controls &amp; Radio Chips</a></li>
+          </ul>
+        </div>
+
+        <!-- 9. Accordions & Tabs -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>08. Accordions &amp; Tabs</span>
+            <span class="catalog-category-count">2</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-faq-accordion" class="catalog-nav-link">FAQ Accordion (45&deg; rotate)</a></li>
+            <li><a href="#cmp-category-filter-bar" class="catalog-nav-link">Category Filter Bar</a></li>
+          </ul>
+        </div>
+
+        <!-- 10. Testimonials -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>09. Testimonials</span>
+            <span class="catalog-category-count">2</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-testimonial-quote-carousel" class="catalog-nav-link">Testimonial Quote Carousel</a></li>
+            <li><a href="#cmp-curated-testimonials-grid" class="catalog-nav-link">Curated Testimonials Grid</a></li>
+          </ul>
+        </div>
+
+        <!-- 11. Modals & Overlays -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>10. Modals &amp; Overlays</span>
+            <span class="catalog-category-count">1</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-zoom-lightbox-modal" class="catalog-nav-link">Luxury Click-to-Zoom Lightbox</a></li>
+          </ul>
+        </div>
+
+        <!-- 12. Footers -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>11. Footers</span>
+            <span class="catalog-category-count">1</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-kinfolk-footer" class="catalog-nav-link">Kinfolk Editorial Footer</a></li>
+          </ul>
+        </div>
+
+        <!-- 13. Animations & Effects -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>12. Animations &amp; Effects</span>
+            <span class="catalog-category-count">4</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-rotating-seal-emblem" class="catalog-nav-link">Rotating Studio Seal Emblem</a></li>
+            <li><a href="#cmp-parallax-frame" class="catalog-nav-link">Parallax Image Frame</a></li>
+            <li><a href="#cmp-dolly-zoom" class="catalog-nav-link">Cinematic Dolly Zoom</a></li>
+            <li><a href="#cmp-curtain-reveal" class="catalog-nav-link">Curtain Reveal Image Effect</a></li>
+          </ul>
+        </div>
+
+        <!-- 14. Badges & Decorations -->
+        <div class="catalog-nav-category">
+          <div class="catalog-category-heading">
+            <span>13. Badges &amp; Accents</span>
+            <span class="catalog-category-count">1</span>
+          </div>
+          <ul class="catalog-nav-list">
+            <li><a href="#cmp-editorial-annotations" class="catalog-nav-link">Editorial Annotations (4 styles)</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Catalog View -->
+    <main class="catalog-main">
+      
+      <!-- Catalog Master Header -->
+      <header class="catalog-hero-banner">
+        <span class="catalog-hero-eyebrow">Design System &bull; Production Architecture</span>
+        <h1 class="catalog-hero-headline">Le PhotoGRAM UI Component Library</h1>
+        <p class="catalog-hero-lead">
+          An independent, production-grade library of 38 architectural luxury UI components extracted with pixel-perfect fidelity. Built on high-fashion Kinfolk editorial standards, 0px brutalist geometry, Italiana serif typography, and Signature Crimson accents.
+        </p>
+        <div class="catalog-stats-row">
+          <div class="catalog-stat-item">
+            <span class="catalog-stat-val">38</span>
+            <span class="catalog-stat-lbl">Extracted Components</span>
+          </div>
+          <div class="catalog-stat-item">
+            <span class="catalog-stat-val">13</span>
+            <span class="catalog-stat-lbl">Organized Categories</span>
+          </div>
+          <div class="catalog-stat-item">
+            <span class="catalog-stat-val">60-30-10</span>
+            <span class="catalog-stat-lbl">Bright Editorial Palette</span>
+          </div>
+          <div class="catalog-stat-item">
+            <span class="catalog-stat-val">100%</span>
+            <span class="catalog-stat-lbl">Self-Contained &amp; Untouched Original</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ====================================================================
+           CATEGORY 00: DESIGN TOKENS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-tokens">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">00. Design Tokens &amp; Foundation</h2>
+          <span class="category-badge-pill">design-tokens/</span>
+        </div>
+
+        <div class="component-card" id="cmp-tokens">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Editorial Color &amp; Typography Tokens</span>
+              <span class="component-path-tag">ui-component-library/design-tokens/tokens.css</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-tokens">View CSS Tokens</button>
+            </div>
+          </div>
+          <div class="component-stage" style="flex-direction: column; gap: 24px; align-items: flex-start; padding: 32px;">
+            <p style="font-family: var(--font-serif-body); font-style: italic; font-size: 1.1rem; color: #555;">
+              Rule #1 Enforced: Pure White (#FFFFFF) 60% canvas, Ink Black (#141414) 30% structure, Signature Crimson (#800A19) 10% accent. Radii strictly 0px. Blue prohibited.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <div style="background: #FFFFFF; border: 1px solid #EAE6DC; padding: 16px; width: 140px;">
+                <div style="width: 100%; height: 40px; background: #FFFFFF; border: 1px solid #EAE6DC; margin-bottom: 8px;"></div>
+                <div style="font-size: 10px; font-weight: 700;">60% White</div>
+                <div style="font-size: 9px; color: #777;">#FFFFFF</div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #EAE6DC; padding: 16px; width: 140px;">
+                <div style="width: 100%; height: 40px; background: #FAF8F5; border: 1px solid #EAE6DC; margin-bottom: 8px;"></div>
+                <div style="font-size: 10px; font-weight: 700;">Porcelain Canvas</div>
+                <div style="font-size: 9px; color: #777;">#FAF8F5</div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #EAE6DC; padding: 16px; width: 140px;">
+                <div style="width: 100%; height: 40px; background: #F7F5EE; border: 1px solid #EAE6DC; margin-bottom: 8px;"></div>
+                <div style="font-size: 10px; font-weight: 700;">Warm Ivory Card</div>
+                <div style="font-size: 9px; color: #777;">#F7F5EE</div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #EAE6DC; padding: 16px; width: 140px;">
+                <div style="width: 100%; height: 40px; background: #141414; margin-bottom: 8px;"></div>
+                <div style="font-size: 10px; font-weight: 700;">30% Ink Black</div>
+                <div style="font-size: 9px; color: #777;">#141414</div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #EAE6DC; padding: 16px; width: 140px;">
+                <div style="width: 100%; height: 40px; background: #800A19; margin-bottom: 8px;"></div>
+                <div style="font-size: 10px; font-weight: 700;">10% Signature Crimson</div>
+                <div style="font-size: 9px; color: #777;">#800A19</div>
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-tokens">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>/* Extract from tokens.css */
+:root {
+  --color-white: #FFFFFF;
+  --color-porcelain: #FAF8F5;
+  --color-ivory: #F7F5EE;
+  --color-ink: #141414;
+  --color-crimson: #800A19;
+  --color-crimson-hover: #A01224;
+  --color-border-warm: #EAE6DC;
+  --font-serif-title: "Italiana", "Playfair Display", Georgia, serif;
+  --font-serif-body: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-none: 0px;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 01: NAVIGATION
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-navigation">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">01. Navigation Components</h2>
+          <span class="category-badge-pill">navigation/</span>
+        </div>
+
+        <!-- Kinfolk 3-Zone Header -->
+        <div class="component-card" id="cmp-kinfolk-header">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Kinfolk 3-Zone Header</span>
+              <span class="component-path-tag">navigation/kinfolk-header/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-header">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 0; background: #FFFFFF; display: block;">
+            <header class="site-header" style="position: relative; top: auto; left: auto; right: auto; border-bottom: 1px solid #EAE6DC;">
+              <div class="header-inner">
+                <nav class="header-left" aria-label="Header primary menu">
+                  <a href="#about" class="nav-link">About</a>
+                  <a href="#work" class="nav-link">Portfolio</a>
+                  <a href="#services" class="nav-link">Services</a>
+                </nav>
+                <a href="#home" class="header-center-logo" aria-label="Le PhotoGRAM Atelier">
+                  <img src="assets/brand/full-logo-black.png" alt="Le PhotoGRAM" class="header-logo-img" />
+                </a>
+                <div class="header-right">
+                  <a href="#testimonials" class="nav-link">Reflections</a>
+                  <a href="#booking" class="btn-pill-dark">Reserve Date</a>
+                </div>
+              </div>
+            </header>
+          </div>
+          <div class="component-code-drawer" id="code-header">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;header class="site-header"&gt;
+  &lt;div class="header-inner"&gt;
+    &lt;nav class="header-left"&gt;
+      &lt;a href="about.html" class="nav-link"&gt;About&lt;/a&gt;
+      &lt;a href="portfolio.html" class="nav-link"&gt;Portfolio&lt;/a&gt;
+      &lt;a href="services.html" class="nav-link"&gt;Services&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;a href="index.html" class="header-center-logo"&gt;
+      &lt;img src="assets/brand/full-logo-black.png" alt="Le PhotoGRAM" class="header-logo-img" /&gt;
+    &lt;/a&gt;
+    &lt;div class="header-right"&gt;
+      &lt;a href="testimonials.html" class="nav-link"&gt;Reflections&lt;/a&gt;
+      &lt;a href="booking.html" class="btn-pill-dark"&gt;Reserve Date&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- WhatsApp Floating Action -->
+        <div class="component-card" id="cmp-whatsapp-floating-action">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">WhatsApp Floating Action Button</span>
+              <span class="component-path-tag">navigation/whatsapp-floating-action/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-wa">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="min-height: 160px; justify-content: center;">
+            <a href="https://wa.me/12125550192" class="whatsapp-float-btn" target="_blank" rel="noopener noreferrer" style="position: relative; bottom: auto; right: auto;">
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.06 6.94C8.87 6.94 8.55 7.01 8.28 7.31C8.01 7.6 7.23 8.33 7.23 9.82C7.23 11.31 8.32 12.74 8.47 12.94C8.62 13.14 10.6 16.2 13.63 17.51C14.35 17.82 14.92 18.01 15.35 18.15C16.08 18.38 16.74 18.35 17.27 18.27C17.85 18.18 19.07 17.53 19.32 16.82C19.58 16.11 19.58 15.5 19.5 15.38C19.42 15.26 19.23 15.19 18.94 15.05C18.66 14.9 17.28 14.22 17.03 14.12C16.77 14.03 16.58 13.98 16.39 14.27C16.2 14.56 15.65 15.19 15.49 15.38C15.32 15.58 15.15 15.6 14.87 15.46C14.59 15.31 13.68 15.01 12.61 14.06C11.78 13.32 11.22 12.41 11.05 12.12C10.89 11.83 11.03 11.68 11.18 11.53C11.31 11.4 11.47 11.19 11.61 11.02C11.76 10.85 11.81 10.73 11.9 10.53C12 10.34 11.95 10.17 11.88 10.02C11.81 9.88 11.23 8.44 10.99 7.85C10.75 7.28 10.52 7.36 10.34 7.35C10.17 7.34 9.98 7.34 9.79 7.34C9.59 7.34 9.26 7.41 9.06 7.63"/>
+              </svg>
+              <span class="whatsapp-float-tooltip">Inquire on WhatsApp</span>
+            </a>
+          </div>
+          <div class="component-code-drawer" id="code-wa">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;a href="https://wa.me/YOUR_PHONE" class="whatsapp-float-btn" target="_blank" rel="noopener noreferrer"&gt;
+  &lt;svg viewBox="0 0 24 24" width="28" height="28"&gt;...&lt;/svg&gt;
+  &lt;span class="whatsapp-float-tooltip"&gt;Inquire on WhatsApp&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 02: HERO SECTIONS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-hero-sections">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">02. Hero Sections</h2>
+          <span class="category-badge-pill">hero-sections/</span>
+        </div>
+
+        <!-- Atmospheric Hero Banner -->
+        <div class="component-card" id="cmp-atmospheric-hero-banner">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Atmospheric Photo Hero Banner</span>
+              <span class="component-path-tag">hero-sections/atmospheric-hero-banner/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-atmo">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 0; display: block;">
+            <header class="page-hero-banner" style="min-height: 380px;">
+              <img src="assets/images/img28.webp" alt="Historic Manor Atmospheric Banner" class="page-hero-bg-img" />
+              <div class="page-hero-scrim"></div>
+              <div class="page-hero-content">
+                <span class="page-hero-eyebrow">The Atelier Archive</span>
+                <h2 class="page-hero-title">Selected Works</h2>
+                <p class="page-hero-sub">Heirloom wedding photography and cinema curated from European destination celebrations.</p>
+              </div>
+            </header>
+          </div>
+          <div class="component-code-drawer" id="code-atmo">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;header class="page-hero-banner"&gt;
+  &lt;img src="path/to/hero.webp" class="page-hero-bg-img" alt="Atmospheric Scene" /&gt;
+  &lt;div class="page-hero-scrim"&gt;&lt;/div&gt;
+  &lt;div class="page-hero-content"&gt;
+    &lt;span class="page-hero-eyebrow"&gt;The Atelier Archive&lt;/span&gt;
+    &lt;h1 class="page-hero-title"&gt;Selected Works&lt;/h1&gt;
+    &lt;p class="page-hero-sub"&gt;Curated wedding stories.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Services Plaque Hero -->
+        <div class="component-card" id="cmp-services-plaque-hero">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Floating Ivory Services Plaque Hero</span>
+              <span class="component-path-tag">hero-sections/services-plaque-hero/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-plaque">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 0; display: block;">
+            <section class="services-hero-section" style="min-height: 480px;">
+              <img src="assets/images/img1.webp" alt="Services Backdrop" class="services-hero-bg-photo" />
+              <div class="services-hero-overlay"></div>
+              <div class="services-plaque-container">
+                <div class="services-editorial-plaque">
+                  <span class="plaque-eyebrow">Bespoke Collections</span>
+                  <h2 class="plaque-title">Quiet Elegance &bull; Enduring Poetry</h2>
+                  <p class="plaque-narrative">
+                    We document weddings across the globe with fine art medium format film and poetic moving picture cinematography.
+                  </p>
+                  <div class="plaque-tag-row">
+                    <span class="plaque-tag">Worldwide Commission</span>
+                    <span class="plaque-tag">&bull;</span>
+                    <span class="plaque-tag">Limited Annual Dates</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="component-code-drawer" id="code-plaque">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;section class="services-hero-section"&gt;
+  &lt;img src="path/to/hero.webp" class="services-hero-bg-photo" alt="Backdrop" /&gt;
+  &lt;div class="services-hero-overlay"&gt;&lt;/div&gt;
+  &lt;div class="services-plaque-container"&gt;
+    &lt;div class="services-editorial-plaque"&gt;
+      &lt;span class="plaque-eyebrow"&gt;Bespoke Collections&lt;/span&gt;
+      &lt;h1 class="plaque-title"&gt;Quiet Elegance&lt;/h1&gt;
+      &lt;p class="plaque-narrative"&gt;Preserving honest emotion.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 03: CARDS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-cards">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">03. Cards &amp; Display Blocks</h2>
+          <span class="category-badge-pill">cards/</span>
+        </div>
+
+        <!-- Work Case Study Card -->
+        <div class="component-card" id="cmp-work-case-study-card">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Work Case Study Card (with 6% GPU Zoom)</span>
+              <span class="component-path-tag">cards/work-case-study-card/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-workcard">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px;">
+            <article class="work-card" style="max-width: 440px; margin: 0 auto;">
+              <a href="#case-study" class="work-card-link" aria-label="View Lake Como Villa Wedding">
+                <div class="work-card-img-frame">
+                  <img src="assets/images/img2.webp" alt="Villa del Balbianello Wedding" class="work-card-img" />
+                  <div class="work-card-tag-pill">Medium Format Film</div>
+                </div>
+                <div class="work-card-body">
+                  <div class="work-card-header-row">
+                    <span class="work-card-index">01</span>
+                    <span class="work-card-location">Lake Como, Italy</span>
+                  </div>
+                  <h3 class="work-card-title">Elena &amp; Matteo</h3>
+                  <div class="work-card-footer-row">
+                    <span class="work-card-meta">Villa del Balbianello &bull; 3-Day Commission</span>
+                    <span class="work-card-arrow" aria-hidden="true">&rarr;</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+          <div class="component-code-drawer" id="code-workcard">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;article class="work-card"&gt;
+  &lt;a href="work-detail.html" class="work-card-link"&gt;
+    &lt;div class="work-card-img-frame"&gt;
+      &lt;img src="path/to/photo.webp" class="work-card-img" alt="Wedding" /&gt;
+      &lt;div class="work-card-tag-pill"&gt;Medium Format Film&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="work-card-body"&gt;
+      &lt;div class="work-card-header-row"&gt;
+        &lt;span class="work-card-index"&gt;01&lt;/span&gt;
+        &lt;span class="work-card-location"&gt;Lake Como, Italy&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;h3 class="work-card-title"&gt;Elena &amp; Matteo&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+&lt;/article&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Curated Testimonial Card -->
+        <div class="component-card" id="cmp-curated-testimonial-card">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Curated Testimonial Card</span>
+              <span class="component-path-tag">cards/curated-testimonial-card/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-tcard">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px;">
+            <article class="curated-t-card featured" style="max-width: 480px; margin: 0 auto;">
+              <div class="curated-t-header">
+                <span class="curated-t-index">01</span>
+                <span class="curated-t-badge">Featured Story</span>
+              </div>
+              <blockquote class="curated-t-body">
+                “Every photograph feels honest and completely us. They captured the nervous laughter, the tears during vows, and the wild energy of the afterparty without ever feeling intrusive.”
+              </blockquote>
+              <div class="curated-t-footer">
+                <img src="assets/images/img35.webp" alt="Riya & Arjun" class="curated-t-avatar" />
+                <div class="curated-t-meta">
+                  <h4 class="curated-t-name">Riya &amp; Arjun</h4>
+                  <span class="curated-t-place">Villa del Balbianello, Lake Como</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="component-code-drawer" id="code-tcard">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;article class="curated-t-card featured"&gt;
+  &lt;div class="curated-t-header"&gt;
+    &lt;span class="curated-t-index"&gt;01&lt;/span&gt;
+    &lt;span class="curated-t-badge"&gt;Featured Story&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;blockquote class="curated-t-body"&gt;
+    “Every photograph feels honest and completely us...”
+  &lt;/blockquote&gt;
+  &lt;div class="curated-t-footer"&gt;
+    &lt;img src="path/to/avatar.webp" class="curated-t-avatar" alt="Couple" /&gt;
+    &lt;div class="curated-t-meta"&gt;
+      &lt;h4 class="curated-t-name"&gt;Riya &amp; Arjun&lt;/h4&gt;
+      &lt;span class="curated-t-place"&gt;Lake Como, Italy&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Contact Channel Card -->
+        <div class="component-card" id="cmp-contact-channel-card">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Contact Channel Interactive Card</span>
+              <span class="component-path-tag">cards/contact-channel-card/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-channel">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px;">
+            <div style="max-width: 480px; width: 100%;">
+              <a href="mailto:atelier@lephotogram.com" class="contact-channel-item">
+                <div class="contact-channel-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </div>
+                <div class="contact-channel-info">
+                  <span class="contact-channel-label">Direct Studio Email</span>
+                  <span class="contact-channel-value">atelier@lephotogram.com</span>
+                </div>
+                <div class="contact-channel-arrow" aria-hidden="true">&rarr;</div>
+              </a>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-channel">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;a href="mailto:atelier@lephotogram.com" class="contact-channel-item"&gt;
+  &lt;div class="contact-channel-icon-wrap"&gt;...&lt;/div&gt;
+  &lt;div class="contact-channel-info"&gt;
+    &lt;span class="contact-channel-label"&gt;Direct Studio Email&lt;/span&gt;
+    &lt;span class="contact-channel-value"&gt;atelier@lephotogram.com&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="contact-channel-arrow"&gt;&rarr;&lt;/div&gt;
+&lt;/a&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 04: BUTTONS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-buttons">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">04. Buttons &amp; Interactive Triggers</h2>
+          <span class="category-badge-pill">buttons/</span>
+        </div>
+
+        <div class="component-card" id="cmp-editorial-buttons">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Editorial Pill Buttons &amp; Arrow Links</span>
+              <span class="component-path-tag">buttons/editorial-buttons/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-btns">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="gap: 20px; flex-wrap: wrap;">
+            <a href="#demo" class="btn-pill">Outline Inquire</a>
+            <a href="#demo" class="btn-pill-dark">Solid Crimson Reserve</a>
+            <a href="#demo" class="btn-pill-warm">Ivory Collection</a>
+            <a href="#demo" class="editorial-arrow-link">
+              <span>View Atelier Story</span>
+              <span class="link-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          <div class="component-code-drawer" id="code-btns">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;a href="#" class="btn-pill"&gt;Outline Pill&lt;/a&gt;
+&lt;a href="#" class="btn-pill-dark"&gt;Solid Crimson Pill&lt;/a&gt;
+&lt;a href="#" class="btn-pill-warm"&gt;Ivory Pill&lt;/a&gt;
+&lt;a href="#" class="editorial-arrow-link"&gt;
+  &lt;span&gt;Explore Gallery&lt;/span&gt;
+  &lt;span class="link-arrow"&gt;&rarr;&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="component-card" id="cmp-carousel-arrow-buttons">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Circular Crimson Carousel Arrows</span>
+              <span class="component-path-tag">buttons/carousel-arrow-buttons/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-arrows">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="gap: 16px;">
+            <button type="button" class="arrow-btn" aria-label="Previous slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button type="button" class="arrow-btn" aria-label="Next slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="component-code-drawer" id="code-arrows">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;button type="button" class="arrow-btn" aria-label="Previous"&gt;
+  &lt;svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"&gt;
+    &lt;path d="M15 19l-7-7 7-7"/&gt;
+  &lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 05: LAYOUTS & GRIDS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-layouts-and-grids">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">05. Layouts &amp; Grids</h2>
+          <span class="category-badge-pill">layouts-and-grids/</span>
+        </div>
+
+        <!-- Stats Counter Grid -->
+        <div class="component-card" id="cmp-stats-counter-grid">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Stats Counter Grid (Live requestAnimationFrame)</span>
+              <span class="component-path-tag">layouts-and-grids/stats-counter-grid/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-stats">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 24px; display: block;">
+            <div class="stats-grid" id="statsGridDemo">
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-val" data-target="8">8</span>
+                  <span class="stat-suffix">+</span>
+                </div>
+                <div class="stat-label">Years of Fine Art Heritage</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-val" data-target="140">140</span>
+                  <span class="stat-suffix">+</span>
+                </div>
+                <div class="stat-label">Heirloom Weddings Documented</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-val" data-target="18">18</span>
+                  <span class="stat-suffix"></span>
+                </div>
+                <div class="stat-label">Countries &amp; Continents Commissioned</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number-wrap">
+                  <span class="stat-val" data-target="100">100</span>
+                  <span class="stat-suffix">%</span>
+                </div>
+                <div class="stat-label">Authentic Film &amp; Cinema Fidelity</div>
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-stats">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="stats-grid"&gt;
+  &lt;div class="stat-item"&gt;
+    &lt;div class="stat-number-wrap"&gt;
+      &lt;span class="stat-val" data-target="140"&gt;0&lt;/span&gt;
+      &lt;span class="stat-suffix"&gt;+&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="stat-label"&gt;Weddings Documented&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Section Header Pattern -->
+        <div class="component-card" id="cmp-section-header-pattern">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Section Header Pattern</span>
+              <span class="component-path-tag">layouts-and-grids/section-header-pattern/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-header-pat">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px; display: block;">
+            <div class="section-header" style="max-width: 780px; margin: 0 auto;">
+              <div class="section-eyebrow-row">
+                <span class="section-category-tag">Curated Collections</span>
+                <span class="section-counter-badge">01 &bull; 04</span>
+              </div>
+              <h2 class="section-title">A Glimpse Into Our Work</h2>
+              <div class="section-rule" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-header-pat">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="section-header"&gt;
+  &lt;div class="section-eyebrow-row"&gt;
+    &lt;span class="section-category-tag"&gt;Curated Collections&lt;/span&gt;
+    &lt;span class="section-counter-badge"&gt;01 &bull; 04&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h2 class="section-title"&gt;A Glimpse Into Our Work&lt;/h2&gt;
+  &lt;div class="section-rule"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 08: ACCORDIONS & TABS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-accordions-and-tabs">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">08. Accordions &amp; Tabs</h2>
+          <span class="category-badge-pill">accordions-and-tabs/</span>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="component-card" id="cmp-faq-accordion">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Atelier FAQ Accordion</span>
+              <span class="component-path-tag">accordions-and-tabs/faq-accordion/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-faq">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px; display: block;">
+            <div class="faq-list" id="faqAccordionList" style="max-width: 680px; margin: 0 auto;">
+              <div class="faq-item active">
+                <button class="faq-question" aria-expanded="true">
+                  <span>How far in advance do we need to reserve our celebration date?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-inner">
+                    Because we accept a strict limit of 18 bespoke wedding commissions annually to guarantee white-glove artisan editing, couples typically reserve 9 to 18 months ahead of their wedding weekend.
+                  </div>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  <span>Do you provide medium format film alongside digital capture?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-inner">
+                    Yes. Every full wedding collection includes medium format analog film rolls processed in our archival European laboratory alongside high-resolution digital master files.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-faq">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="faq-item"&gt;
+  &lt;button class="faq-question" aria-expanded="false"&gt;
+    &lt;span&gt;Question Text&lt;/span&gt;
+    &lt;span class="faq-icon"&gt;+&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="faq-answer"&gt;
+    &lt;div class="faq-answer-inner"&gt;Answer Text&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Category Filter Bar -->
+        <div class="component-card" id="cmp-category-filter-bar">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Category Filter Tab Bar</span>
+              <span class="component-path-tag">accordions-and-tabs/category-filter-bar/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-tabs">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 32px 24px;">
+            <div class="portfolio-filter-bar" role="tablist">
+              <button class="portfolio-filter-btn active" data-filter="all">All</button>
+              <button class="portfolio-filter-btn" data-filter="weddings">Weddings</button>
+              <button class="portfolio-filter-btn" data-filter="portraits">Studio Portraits</button>
+              <button class="portfolio-filter-btn" data-filter="events">Life Events</button>
+              <button class="portfolio-filter-btn" data-filter="editorial">Editorial &amp; Fine Art</button>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-tabs">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="portfolio-filter-bar" role="tablist"&gt;
+  &lt;button class="portfolio-filter-btn active" data-filter="all"&gt;All&lt;/button&gt;
+  &lt;button class="portfolio-filter-btn" data-filter="weddings"&gt;Weddings&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 09: TESTIMONIALS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-testimonials">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">09. Testimonial Plaque &amp; Grids</h2>
+          <span class="category-badge-pill">testimonials/</span>
+        </div>
+
+        <!-- Testimonial Quote Carousel -->
+        <div class="component-card" id="cmp-testimonial-quote-carousel">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Architectural Testimonial Quote Carousel</span>
+              <span class="component-path-tag">testimonials/testimonial-quote-carousel/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-tcarousel">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px;">
+            <div class="testimonials-card" id="testimonialQuoteCarousel" style="max-width: 680px; margin: 0 auto;">
+              <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+              <p class="testimonial-quote">
+                “Every photograph feels honest and completely us. We couldn't have asked for a more beautiful way to remember our day. The film brings our grandparents' smiles right back to life every time we press play.”
+              </p>
+              <div class="testimonial-author-row">
+                <img src="assets/images/img35.webp" alt="Riya & Arjun" class="testimonial-avatar" />
+                <div class="testimonial-author-meta">
+                  <span class="testimonial-name">Riya &amp; Arjun</span>
+                  <span class="testimonial-location">Lake Como, Italy</span>
+                </div>
+              </div>
+              <div class="carousel-arrows">
+                <button type="button" class="arrow-btn testimonial-prev" aria-label="Previous">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <div class="testimonial-slide-counter">
+                  <span class="t-current-index">01</span>
+                  <span>/</span>
+                  <span>04</span>
+                </div>
+                <button type="button" class="arrow-btn testimonial-next" aria-label="Next">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-tcarousel">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="testimonials-card" id="testimonialQuoteCarousel"&gt;
+  &lt;span class="testimonial-quote-mark"&gt;&ldquo;&lt;/span&gt;
+  &lt;p class="testimonial-quote"&gt;“Quote text...”&lt;/p&gt;
+  &lt;div class="testimonial-author-row"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 12: ANIMATIONS & EFFECTS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-animations-and-effects">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">12. Animations &amp; Visual Effects</h2>
+          <span class="category-badge-pill">animations-and-effects/</span>
+        </div>
+
+        <!-- Rotating Seal Emblem -->
+        <div class="component-card" id="cmp-rotating-seal-emblem">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Rotating Studio Seal Emblem (32s Linear)</span>
+              <span class="component-path-tag">animations-and-effects/rotating-seal-emblem/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-seal">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 32px;">
+            <div class="emblem-wrapper">
+              <div class="parallax-emblem">
+                <div class="rotating-seal">
+                  <svg viewBox="0 0 150 150" class="seal-svg" aria-label="Le PhotoGRAM Atelier">
+                    <defs>
+                      <path id="sealPathDemo" d="M 75, 75 m -56, 0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0" />
+                    </defs>
+                    <circle cx="75" cy="75" r="70" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.35"/>
+                    <text class="seal-text" fill="currentColor">
+                      <textPath href="#sealPathDemo" startOffset="0%">
+                        LE PHOTOGRAM ATELIER &bull; FINE ART &bull; EST. 2018 &bull; WORLDWIDE &bull;
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+                <img src="assets/brand/monogram-black.png" alt="Studio Monogram" class="seal-center-monogram" />
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-seal">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="parallax-emblem"&gt;
+  &lt;div class="rotating-seal"&gt;
+    &lt;svg viewBox="0 0 150 150" class="seal-svg"&gt;...&lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;img src="assets/brand/monogram-black.png" class="seal-center-monogram" /&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Curtain Reveal -->
+        <div class="component-card" id="cmp-curtain-reveal">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Curtain Reveal Image Effect</span>
+              <span class="component-path-tag">animations-and-effects/curtain-reveal/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-curtain">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px; display: block;">
+            <div class="curtain-reveal-container" id="curtainRevealDemo" style="max-width: 540px; margin: 0 auto; padding: 0;">
+              <div class="curtain-reveal-wrap is-revealed" style="height: 380px;">
+                <img src="assets/images/img24.webp" alt="Château de Tourreau" class="curtain-reveal-img" />
+                <div class="curtain-panel" aria-hidden="true">
+                  <div class="curtain-lead-line"></div>
+                </div>
+              </div>
+              <div class="curtain-controls">
+                <span class="curtain-status-text">Interactive replay trigger:</span>
+                <button type="button" class="curtain-replay-btn" id="curtainReplayBtn">Replay Curtain</button>
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-curtain">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;div class="curtain-reveal-wrap"&gt;
+  &lt;img src="path/to/img.webp" class="curtain-reveal-img" /&gt;
+  &lt;div class="curtain-panel"&gt;
+    &lt;div class="curtain-lead-line"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 13: BADGES & DECORATIONS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-badges-and-decorations">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">13. Badges &amp; Typographic Annotations</h2>
+          <span class="category-badge-pill">badges-and-decorations/</span>
+        </div>
+
+        <div class="component-card" id="cmp-editorial-annotations">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Editorial Typographic Annotations (4 styles)</span>
+              <span class="component-path-tag">badges-and-decorations/editorial-annotations/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-annot">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 40px 24px; display: block;">
+            <div class="annotations-showcase" style="border: none; padding: 0;">
+              <div class="annotation-item">
+                <span class="annotation-label">01. Strikethrough</span>
+                <p class="annotation-demo-text">
+                  We do not capture <span class="editorial-annotation-strikethrough">stiff poses</span>, we capture unfiltered emotion.
+                </p>
+              </div>
+              <div class="annotation-item">
+                <span class="annotation-label">02. Hand-Drawn Style Circle</span>
+                <p class="annotation-demo-text">
+                  Preserving memories on <span class="editorial-annotation-circle">Real Film</span> worldwide.
+                </p>
+              </div>
+              <div class="annotation-item">
+                <span class="annotation-label">03. Crown Rays</span>
+                <p class="annotation-demo-text">
+                  Awarded the 
+                  <span class="editorial-rays-wrapper">
+                    <span class="editorial-rays-crown" aria-hidden="true">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </span>
+                    Kinfolk Master
+                  </span>
+                  design recognition.
+                </p>
+              </div>
+              <div class="annotation-item">
+                <span class="annotation-label">04. Scrapbook Polaroid Label</span>
+                <div class="scrapbook-note-box atelier-note-rotate-ccw">
+                  <span class="scrapbook-note-city">Lake Como, Italy</span>
+                  <span class="scrapbook-note-camera">Leica M6 &bull; Kodak Portra 400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component-code-drawer" id="code-annot">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;span class="editorial-annotation-strikethrough"&gt;Stiff Poses&lt;/span&gt;
+&lt;span class="editorial-annotation-circle"&gt;Real Film&lt;/span&gt;
+&lt;span class="editorial-rays-wrapper"&gt;
+  &lt;span class="editorial-rays-crown"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;
+  Word Text
+&lt;/span&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CATEGORY 11: FOOTERS
+           ==================================================================== -->
+      <section class="catalog-category-section" id="cat-footers">
+        <div class="category-title-bar">
+          <h2 class="category-main-title">11. Footers</h2>
+          <span class="category-badge-pill">footers/</span>
+        </div>
+
+        <div class="component-card" id="cmp-kinfolk-footer">
+          <div class="component-header">
+            <div class="component-meta">
+              <span class="component-name">Kinfolk 4-Column Editorial Footer</span>
+              <span class="component-path-tag">footers/kinfolk-footer/</span>
+            </div>
+            <div class="component-actions">
+              <button type="button" class="catalog-btn toggle-code-btn" data-target="code-footer">Code</button>
+            </div>
+          </div>
+          <div class="component-stage" style="padding: 0; display: block;">
+            <footer class="site-footer">
+              <div class="footer-container">
+                <div class="footer-top">
+                  <div class="footer-brand">
+                    <img src="assets/brand/full-logo-black.png" alt="Le PhotoGRAM" class="footer-logo-img" />
+                    <p class="footer-subtitle">Fine Art Wedding Photography &amp; Films.</p>
+                    <p class="footer-locations">London &bull; Paris &bull; Lake Como &bull; New York</p>
+                    <a href="mailto:atelier@lephotogram.com" class="footer-email">atelier@lephotogram.com</a>
+                  </div>
+                  <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Navigation</h4>
+                    <ul class="footer-links">
+                      <li><a href="#home">Home</a></li>
+                      <li><a href="#about">About Us</a></li>
+                      <li><a href="#portfolio">Portfolio</a></li>
+                      <li><a href="#services">Collections</a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Experience</h4>
+                    <ul class="footer-links">
+                      <li><a href="#testimonials">Reflections</a></li>
+                      <li><a href="#faq">Atelier FAQ</a></li>
+                      <li><a href="#booking">Reserve Date</a></li>
+                      <li><a href="#contact">Inquiries</a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Connect</h4>
+                    <ul class="footer-links">
+                      <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                      <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                      <li><a href="https://twitter.com" target="_blank" rel="noopener">X (Twitter)</a></li>
+                      <li><a href="https://wa.me/12125550192" target="_blank" rel="noopener">WhatsApp Direct</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="footer-bottom">
+                  <p class="footer-copyright">&copy; 2026 Le PhotoGRAM. All rights reserved.</p>
+                  <div class="footer-legal-inline">
+                    <a href="#privacy">Privacy</a>
+                    <span>&bull;</span>
+                    <a href="#terms">Terms</a>
+                    <span>&bull;</span>
+                    <a href="#cookie">Cookies</a>
+                  </div>
+                  <a href="#top" class="footer-back-to-top">Back to top &uarr;</a>
+                </div>
+              </div>
+            </footer>
+          </div>
+          <div class="component-code-drawer" id="code-footer">
+            <button class="copy-snippet-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('pre').innerText); this.innerText='COPIED!'; setTimeout(()=>this.innerText='COPY', 2000);">COPY</button>
+            <pre><code>&lt;footer class="site-footer"&gt;
+  &lt;div class="footer-container"&gt;
+    &lt;div class="footer-top"&gt;
+      &lt;div class="footer-brand"&gt;...&lt;/div&gt;
+      &lt;div class="footer-nav-col"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="footer-bottom"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Interactive Component Scripts -->
+  <script src="accordions-and-tabs/faq-accordion/component.js"></script>
+  <script src="accordions-and-tabs/category-filter-bar/component.js"></script>
+  <script src="layouts-and-grids/stats-counter-grid/component.js"></script>
+  <script src="testimonials/testimonial-quote-carousel/component.js"></script>
+  <script src="animations-and-effects/curtain-reveal/component.js"></script>
+  <script src="modals-and-overlays/zoom-lightbox-modal/component.js"></script>
+
+  <!-- Shell Interactive Controller -->
+  <script>
+    // 1. Toggle Code Drawer Buttons
+    document.querySelectorAll('.toggle-code-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const drawer = document.getElementById(targetId);
+        if (drawer) {
+          const isOpen = drawer.classList.contains('open');
+          drawer.classList.toggle('open');
+          btn.classList.toggle('active', !isOpen);
+          btn.textContent = isOpen ? 'Code' : 'Hide Code';
+        }
+      });
+    });
+
+    // 2. Real-Time Search Filter
+    const searchInput = document.getElementById('catalogSearch');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.component-card');
+        const navLinks = document.querySelectorAll('.catalog-nav-link');
+
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          const match = text.includes(query);
+          card.style.display = match ? 'block' : 'none';
+        });
+
+        navLinks.forEach(link => {
+          const text = link.textContent.toLowerCase();
+          const match = text.includes(query);
+          link.parentElement.style.display = match ? 'block' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

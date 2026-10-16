@@ -1,0 +1,144 @@
+/* ==========================================================================
+   CURATED TESTIMONIALS GRID STYLES
+   ========================================================================== */
+
+.curated-testimonials-section {
+  width: 100%;
+  padding: 4rem 1.5rem;
+  background-color: var(--color-porcelain, #FAF8F5);
+  box-sizing: border-box;
+}
+
+.testimonials-grid-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.curated-t-card {
+  background-color: var(--color-white, #FFFFFF);
+  border: 1px solid var(--color-border-warm, #EAE6DC);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.curated-t-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-crimson, #800A19);
+  box-shadow: 0 12px 30px rgba(20, 20, 20, 0.06);
+}
+
+.curated-t-card.featured {
+  background-color: var(--color-ivory, #F7F5EE);
+  border-left: 3px solid var(--color-crimson, #800A19);
+}
+
+.curated-t-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.curated-t-index {
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-crimson, #800A19);
+}
+
+.curated-t-rating {
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: #D4AF37; /* Warm Gold */
+}
+
+.curated-t-badge {
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--color-crimson, #800A19);
+  background: rgba(128, 10, 25, 0.08);
+  padding: 0.25rem 0.6rem;
+}
+
+.curated-t-body {
+  margin: 0 0 2rem 0;
+  font-family: var(--font-serif-body, "Cormorant Garamond", Georgia, serif);
+  font-style: italic;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--color-ink, #141414);
+  flex-grow: 1;
+}
+
+.curated-t-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-warm, #EAE6DC);
+}
+
+.curated-t-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border-warm, #EAE6DC);
+  flex-shrink: 0;
+}
+
+.curated-t-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.curated-t-name {
+  margin: 0;
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ink, #141414);
+  letter-spacing: -0.01em;
+}
+
+.curated-t-place {
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 0.75rem;
+  color: var(--color-crimson, #800A19);
+  letter-spacing: 0.04em;
+  margin-top: 0.2rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .curated-t-card {
+    padding: 1.75rem 1.5rem;
+  }
+}

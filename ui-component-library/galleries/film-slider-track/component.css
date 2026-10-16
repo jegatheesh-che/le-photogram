@@ -1,0 +1,118 @@
+/* ==========================================================================
+   CINEMATIC FILM SLIDER TRACK - COMPONENT STYLES
+   ========================================================================== */
+
+.film-slider-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.film-track-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.film-track-tag {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--theme-crimson-blaze, #800A19);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.film-track-title {
+  font-family: var(--font-serif, 'Italiana', serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  color: var(--theme-ink-black, #141414);
+  margin: 0;
+}
+
+.film-track-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+
+.film-track-container:active {
+  cursor: grabbing;
+}
+
+.film-track {
+  display: flex;
+  gap: 24px;
+  will-change: transform;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.film-slide {
+  flex: 0 0 380px;
+  height: 480px;
+  position: relative;
+  border-radius: 0px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.film-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.film-slide-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.72) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.film-slide-info {
+  position: absolute;
+  bottom: 80px;
+  left: 24px;
+  right: 24px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.film-slide-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.02em;
+}
+
+.film-slide-meta {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.film-slide-btn {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .film-slide {
+    flex: 0 0 300px;
+    height: 400px;
+  }
+}

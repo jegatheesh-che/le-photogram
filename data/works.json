@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "clara-theo",
+    "title": "CLARA & THEO",
+    "date": "Aug 29, 2026",
+    "location": "Provence, France",
+    "service": "Photo + Film",
+    "images": [
+      "/assets/images/dduHwIIbbFXsa4T2Mch7Wlcoy4.png",
+      "/assets/images/6qoPiUBAICKELQAWqbCNZidwKQ.png",
+      "/assets/images/suieTU4VmBXixVaTwhoM7p9Q0WU.png",
+      "/assets/images/dkHih50eU20C0AFaBe7jANt5U.png",
+      "/assets/images/YVvJe89es2td7nZqSgfi132k0U.png",
+      "/assets/images/H4UtD50Ug1kmfBdrLv3yKEQNglw.png"
+    ],
+    "video": "/assets/videos/XbssCZepTmq1ysDC6KyOJoWqM.mp4"
+  },
+  {
+    "slug": "isabelle-thomas",
+    "title": "ISABELLE & THOMAS",
+    "date": "Aug 18, 2026",
+    "location": "Paris, France",
+    "service": "Photography",
+    "images": [
+      "/assets/images/WLEdPcTgNBTISQmFusQW0hEHSss.png",
+      "/assets/images/ui2sDLnCJCoWybPuARH7NsBGqf0.png",
+      "/assets/images/jwTMtGqn75DlL0naUw5s7ejYeqk.png",
+      "/assets/images/Vrqm12zt3iEYy32MrVgctwQfyI.png",
+      "/assets/images/JCTm9wytEKNrR3etiVptkQllGnc.png",
+      "/assets/images/0DGXFfA98AkvUw7Cbmypov7C6I.png"
+    ],
+    "video": null
+  },
+  {
+    "slug": "sophie-luca",
+    "title": "SOPHIE & LUCA",
+    "date": "Aug 16, 2026",
+    "location": "Lake Como, Italy",
+    "service": "Photography",
+    "images": [
+      "/assets/images/tyLJqX8gbQET4uhqqYt3We2vw.png",
+      "/assets/images/qKEv06WOCxODrJZMRTlLcY9o0.png",
+      "/assets/images/u7eF8zESaIQx3EYeRHv9ZD2JlqE.png",
+      "/assets/images/u1CFcoDsktcXEJAvG5CO2NCjfwI.png",
+      "/assets/images/iisCkSgbcBgCUrw6rWjtq5xG4M.png",
+      "/assets/images/ebEBBAqhMzA4XS7cXetTUDzrpU.png"
+    ],
+    "video": null
+  },
+  {
+    "slug": "amelia-james",
+    "title": "AMELIA & JAMES",
+    "date": "Aug 2, 2026",
+    "location": "Mallorca, Spain",
+    "service": "Photo + Film",
+    "images": [
+      "/assets/images/t08lgENNOFurFehR5kdpfYF3Es.png",
+      "/assets/images/v1naYAEwEQQTu2kNcOdPoDl3U.png",
+      "/assets/images/yRtsYoNpV3SObvhjNEneoCV6x3E.png",
+      "/assets/images/tlDNkFwtqh3IWPtxRxvhTOs74.png",
+      "/assets/images/l32dAuLaWvvsiSYIEFVj8jPVHY.png",
+      "/assets/images/tQKyAUeD8NXiOM68yxSAykmnJDA.png"
+    ],
+    "video": "/assets/videos/6G9mdCDt8oAJzms2BWpDgrQdr8.mp4"
+  },
+  {
+    "slug": "elena-matteo",
+    "title": "ELENA & MATTEO",
+    "date": "Jul 19, 2026",
+    "location": "Tuscany, Italy",
+    "service": "Photography",
+    "images": [
+      "/assets/images/V2qVyLCRyJQ1yUXBBpkLRK2bhU.png",
+      "/assets/images/PvDD8t5UbQ0nRcI8JAjf7mIwkec.png",
+      "/assets/images/6QETwDCscY2U361UOc7RpW3A8.png",
+      "/assets/images/eXuQZAs1IHCgnTbXXb4J01aSf8.png",
+      "/assets/images/qjRuUPRIA41ljZ1eFw3JH7wRG9g.png",
+      "/assets/images/lVFQFeCWvJI0oGecw3SpuAkdWEM.png"
+    ],
+    "video": null
+  },
+  {
+    "slug": "olivia-daniel",
+    "title": "OLIVIA & DANIEL",
+    "date": "Jun 5, 2026",
+    "location": "Tuscany, Italy",
+    "service": "Photography + Film",
+    "images": [
+      "/assets/images/CpwsFa5ZJ9iYZ4MsPvqSGtc6w.png",
+      "/assets/images/id8nO42aWl1xtWzuVrczbbuWWus.png",
+      "/assets/images/5FVxLPXl7bHRFIxltvQ6Ol5f5HA.png",
+      "/assets/images/5KfOzCUwYK2jacJ8iTfFycycvyk.png",
+      "/assets/images/vopraYHRTUsTIkVyR2ZJhuSSQZE.png",
+      "/assets/images/lxOU4gYddqtGIjCEJR1LiEHVjQ.png"
+    ],
+    "video": "/assets/videos/azsg0FVaYMR18Vt1dRYZmbMb8.mp4"
+  }
+]

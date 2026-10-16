@@ -1,0 +1,27 @@
+<!-- ==========================================================================
+     ROTATING STUDIO SEAL EMBLEM
+     Atmospheric circular atelier monogram badge featuring:
+     - SVG circular text path continuously rotating at 32s linear speed
+     - Centerpiece studio monogram insignia
+     - Reversible or customizable rotation speed via CSS variables
+     - GPU hardware-accelerated transform
+     ========================================================================== -->
+
+<div class="emblem-wrapper" id="studioSealEmblem">
+  <div class="parallax-emblem">
+    <div class="rotating-seal">
+      <svg viewBox="0 0 150 150" class="seal-svg" aria-label="Le PhotoGRAM Atelier • Fine Art Cinema • Est 2018">
+        <defs>
+          <path id="sealCirclePath" d="M 75, 75 m -56, 0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0" />
+        </defs>
+        <circle cx="75" cy="75" r="70" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.35"/>
+        <text class="seal-text" fill="currentColor">
+          <textPath href="#sealCirclePath" startOffset="0%">
+            LE PHOTOGRAM ATELIER &bull; FINE ART &bull; EST. 2018 &bull; WORLDWIDE &bull;
+          </textPath>
+        </text>
+      </svg>
+    </div>
+    <img src="../../assets/brand/monogram-black.png" alt="Studio Monogram" class="seal-center-monogram" />
+  </div>
+</div>

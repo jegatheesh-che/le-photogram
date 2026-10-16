@@ -1,0 +1,90 @@
+/* ==========================================================================
+   CURTAIN REVEAL IMAGE EFFECT STYLES
+   ========================================================================== */
+
+.curtain-reveal-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.curtain-reveal-wrap {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-warm, #EAE6DC);
+  background-color: var(--color-ivory, #F7F5EE);
+}
+
+.curtain-reveal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.06);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curtain-reveal-wrap.is-revealed .curtain-reveal-img {
+  transform: scale(1);
+}
+
+.curtain-panel {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-porcelain, #FAF8F5);
+  z-index: 2;
+  transform: translateY(0%);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+.curtain-reveal-wrap.is-revealed .curtain-panel {
+  transform: translateY(-100%);
+}
+
+.curtain-lead-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-crimson, #800A19);
+}
+
+.curtain-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.curtain-status-text {
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 13px;
+  color: var(--color-ink-muted, #555555);
+}
+
+.curtain-replay-btn {
+  background: var(--color-white, #FFFFFF);
+  border: 1px solid var(--color-crimson, #800A19);
+  color: var(--color-crimson, #800A19);
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.curtain-replay-btn:hover {
+  background: var(--color-crimson, #800A19);
+  color: #FFFFFF;
+}

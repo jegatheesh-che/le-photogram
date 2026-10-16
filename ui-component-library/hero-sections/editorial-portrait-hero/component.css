@@ -1,0 +1,80 @@
+/* ==========================================================================
+   EDITORIAL STUDIO DARK PORTRAIT HERO - COMPONENT STYLES
+   ========================================================================== */
+
+.editorial-portrait-hero {
+  background-color: var(--theme-ink-black, #141414);
+  color: #FFFFFF;
+  padding-top: 150px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: visible;
+  text-align: center;
+}
+
+.editorial-portrait-container {
+  width: 100%;
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x, 16px);
+  position: relative;
+}
+
+.editorial-portrait-title {
+  font-family: var(--font-serif, 'Italiana', serif);
+  font-size: clamp(48px, 8.5vw, 102px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 0.95;
+  margin: 0 0 16px 0;
+  color: #FFFFFF;
+}
+
+.editorial-portrait-subtitle {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(12px, 1.4vw, 14px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  margin: 0 0 48px 0;
+}
+
+.editorial-portrait-frame {
+  max-width: 440px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  margin-bottom: -140px;
+  box-shadow: var(--shadow-floating, 0 28px 64px -8px rgba(18, 18, 18, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  background-color: #1f1f1f;
+}
+
+.editorial-portrait-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-portrait-frame:hover .editorial-portrait-img {
+  transform: scale(1.03);
+}
+
+/* Tablet & Mobile responsive */
+@media (max-width: 768px) {
+  .editorial-portrait-hero {
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .editorial-portrait-frame {
+    max-width: 290px;
+    margin-bottom: -70px;
+  }
+}

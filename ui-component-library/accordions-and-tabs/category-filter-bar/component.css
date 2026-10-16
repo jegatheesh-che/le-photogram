@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CATEGORY FILTER TABS BAR - COMPONENT STYLES
+   ========================================================================== */
+
+.portfolio-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.portfolio-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 40px;
+  border: 1px solid var(--color-border, rgba(20, 20, 20, 0.16));
+  background-color: transparent;
+  color: var(--theme-ink-black, #141414);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-filter-btn:hover {
+  border-color: var(--theme-ink-black, #141414);
+  background-color: rgba(20, 20, 20, 0.04);
+}
+
+.portfolio-filter-btn.active {
+  background-color: var(--theme-ink-black, #141414);
+  border-color: var(--theme-ink-black, #141414);
+  color: #FFFFFF;
+}
+
+@media (max-width: 640px) {
+  .portfolio-filter-bar {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .portfolio-filter-btn {
+    padding: 7px 14px;
+    font-size: 10px;
+  }
+}

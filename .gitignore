@@ -1,0 +1,21 @@
+# Node dependencies
+node_modules/
+package-lock.json.bak*
+
+# Build outputs
+dist/
+dist-ssr/
+*.local
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporary test & debug artifacts
+scratch/
+shots/
+portfolio_snap*.png
+*.tmp

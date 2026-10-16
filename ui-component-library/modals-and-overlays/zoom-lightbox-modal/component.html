@@ -1,0 +1,32 @@
+<!-- ==========================================================================
+     LUXURY CLICK-TO-ZOOM LIGHTBOX MODAL
+     Fullscreen editorial photo preview modal with backdrop blur.
+     Features:
+     - 20px CSS backdrop blur with 94% ink overlay
+     - Close button with crimson hover scale
+     - Responsive image stage with smooth cubic-bezier scale-in
+     - Editorial uppercase letterspaced caption
+     - Click outside / Escape key dismissal
+     ========================================================================== -->
+
+<!-- Trigger Example Thumbnail (for preview / testing) -->
+<div class="lightbox-trigger-example" style="display: inline-block; cursor: zoom-in;">
+  <img 
+    src="../../assets/images/img8.webp" 
+    alt="Fine Art Wedding in Provence — Medium Format Film" 
+    class="zoomable-preview-img" 
+    style="width: 320px; height: 220px; object-fit: cover; border: 1px solid #EAE6DC;"
+  />
+  <p style="font-family: 'Instrument Sans', sans-serif; font-size: 0.8rem; color: #800A19; margin-top: 0.5rem;">
+    Click image above to preview Lightbox &uarr;
+  </p>
+</div>
+
+<!-- Lightbox Modal Markup -->
+<div class="gallery-lightbox" id="siteLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="gallery-lightbox-close" id="lightboxCloseBtn" aria-label="Close zoomed view">&times;</button>
+  <div class="gallery-lightbox-stage">
+    <img src="" alt="" class="gallery-lightbox-img" id="lightboxActiveImg" />
+    <div class="gallery-lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>

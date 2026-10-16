@@ -1,0 +1,20 @@
+<!-- ==========================================================================
+     CINEMATIC FILM SLIDE REEL CARD
+     Vertical film card featuring:
+     - Autoplaying muted looping motion picture reel
+     - Dark hover scrim
+     - Anchored primary action button / play trigger
+     ========================================================================== -->
+
+<div class="film-slide" id="filmSlideCard">
+  <video class="film-video" autoplay loop muted playsinline poster="../../assets/images/img1.webp">
+    <source src="../../assets/videos/hero-preview.mp4" type="video/mp4">
+  </video>
+  <div class="film-slide-scrim" aria-hidden="true"></div>
+  <a href="#watch-film" class="btn-pill-dark film-slide-btn">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;" aria-hidden="true">
+      <polygon points="5 3 19 12 5 21 5 3"/>
+    </svg>
+    <span>Watch Film</span>
+  </a>
+</div>

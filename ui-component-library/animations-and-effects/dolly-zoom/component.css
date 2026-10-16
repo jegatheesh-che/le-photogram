@@ -1,0 +1,51 @@
+/* ==========================================================================
+   CINEMATIC DOLLY ZOOM (VERTIGO SCROLL) STYLES
+   ========================================================================== */
+
+.dolly-zoom-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.dolly-zoom-frame {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-warm, #EAE6DC);
+  background-color: var(--color-ink, #141414);
+}
+
+.dolly-zoom-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  will-change: transform;
+  transform: scale(1.15) translate3d(0, -4%, 0);
+  transition: transform 0.08s linear;
+}
+
+.dolly-zoom-overlay {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dolly-zoom-pill {
+  display: inline-block;
+  background: rgba(128, 10, 25, 0.88);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+}

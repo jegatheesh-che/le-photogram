@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CAROUSEL ARROW NAVIGATION BUTTONS - COMPONENT STYLES
+   ========================================================================== */
+
+.carousel-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--theme-crimson-blaze, #800A19);
+  background-color: var(--theme-crimson-blaze, #800A19);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(128, 10, 25, 0.28);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+}
+
+.arrow-btn:hover {
+  background-color: var(--theme-crimson-bright, #A01224);
+  border-color: var(--theme-crimson-bright, #A01224);
+  color: #FFFFFF;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(128, 10, 25, 0.42);
+}
+
+.arrow-btn:active {
+  transform: translateY(0px) scale(0.95);
+  box-shadow: 0 2px 8px rgba(128, 10, 25, 0.25);
+}
+
+.arrow-btn:focus-visible {
+  outline: 2px solid var(--theme-crimson-blaze, #800A19);
+  outline-offset: 3px;
+}
+
+.arrow-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #FFFFFF;
+  stroke-width: 2.2;
+  display: block;
+}

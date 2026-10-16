@@ -1,0 +1,79 @@
+/* ==========================================================================
+   COUNT-UP STATS GRID - COMPONENT STYLES
+   ========================================================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  background-color: var(--theme-ivory-card, #F7F5EE);
+  border: 1px solid var(--color-border, rgba(20, 20, 20, 0.12));
+  padding: 44px 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-number-wrap {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-serif, 'Italiana', serif);
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1;
+  color: var(--theme-ink-black, #141414);
+}
+
+.stat-val {
+  font-family: var(--font-serif, 'Italiana', serif);
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1;
+  color: var(--theme-ink-black, #141414);
+  font-weight: 400;
+}
+
+.stat-suffix {
+  font-family: var(--font-serif, 'Italiana', serif);
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1;
+  color: var(--theme-crimson-blaze, #800A19);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.stat-label {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--theme-ink-muted, #555555);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Tablet (max-width: 900px) */
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
+    padding: 32px 24px;
+  }
+}
+
+/* Mobile (max-width: 540px) */
+@media (max-width: 540px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 14px;
+    padding: 24px 16px;
+  }
+
+  .stat-label {
+    font-size: 9.5px;
+    letter-spacing: 1px;
+  }
+}

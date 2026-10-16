@@ -1,0 +1,71 @@
+/* ==========================================================================
+   PORTFOLIO MASONRY MOSAIC GRID - COMPONENT STYLES
+   ========================================================================== */
+
+.portfolio-mosaic-grid {
+  column-count: 3;
+  column-gap: 14px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.portfolio-grid-item {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.portfolio-grid-item:hover {
+  transform: translateY(-3px);
+  z-index: 5;
+}
+
+.portfolio-img-box {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 0px;
+  border: 1px solid var(--color-border, rgba(20, 20, 20, 0.08));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  background-color: #141414;
+}
+
+.portfolio-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-grid-item:hover .portfolio-img-box img {
+  transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .portfolio-mosaic-grid {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  .portfolio-grid-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+  .portfolio-mosaic-grid {
+    column-count: 2;
+    column-gap: 8px;
+  }
+  .portfolio-grid-item {
+    margin-bottom: 8px;
+  }
+}

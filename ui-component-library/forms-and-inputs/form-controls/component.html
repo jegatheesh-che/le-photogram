@@ -1,0 +1,53 @@
+<!-- ==========================================================================
+     REFINED FORM CONTROLS & FIELD GROUPS
+     Atomic form controls collection:
+     1. Standard Text Input with Focus Ring
+     2. Select Dropdown Control
+     3. Selectable Pill Chips (Radio / Checkbox)
+     4. Resizable Textarea Field
+     ========================================================================== -->
+
+<div class="form-controls-showcase" id="formControlsShowcase">
+  <!-- 1. Text Input -->
+  <div class="ref-field-group">
+    <label for="sample-input" class="ref-label">Client Name</label>
+    <input type="text" id="sample-input" class="ref-input" placeholder="e.g. Riya &amp; Arjun" />
+  </div>
+
+  <!-- 2. Select Control -->
+  <div class="ref-field-group">
+    <label for="sample-select" class="ref-label">Desired Collection</label>
+    <select id="sample-select" class="ref-input ref-select">
+      <option value="" disabled selected>Select an editorial collection</option>
+      <option value="hybrid">The Master Hybrid (Photo + Super-8mm)</option>
+      <option value="photo">The Signature Photography</option>
+      <option value="film">Cinematic Motion Picture</option>
+      <option value="bespoke">Bespoke Destination Multi-Day</option>
+    </select>
+  </div>
+
+  <!-- 3. Selectable Pill Chips -->
+  <div class="ref-field-group">
+    <label class="ref-label">Coverage Style</label>
+    <div class="ref-pills-row">
+      <label class="ref-pill-label">
+        <input type="radio" name="coverage_style" value="analog" checked />
+        <span class="ref-pill-chip">35mm Celluloid</span>
+      </label>
+      <label class="ref-pill-label">
+        <input type="radio" name="coverage_style" value="digital" />
+        <span class="ref-pill-chip">Digital Fine Art</span>
+      </label>
+      <label class="ref-pill-label">
+        <input type="radio" name="coverage_style" value="hybrid" />
+        <span class="ref-pill-chip">Both Combined</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- 4. Textarea -->
+  <div class="ref-field-group">
+    <label for="sample-textarea" class="ref-label">Celebration Narrative</label>
+    <textarea id="sample-textarea" class="ref-input ref-textarea" rows="3" placeholder="Tell us about the atmosphere, location details, and vision..."></textarea>
+  </div>
+</div>

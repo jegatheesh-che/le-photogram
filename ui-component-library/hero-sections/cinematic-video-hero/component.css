@@ -1,0 +1,145 @@
+/* ==========================================================================
+   CINEMATIC VIDEO BACKGROUND HERO - COMPONENT STYLES
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 110%;
+  height: 120%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-wordmark {
+  margin: 0;
+  line-height: 1;
+}
+
+.hero-logo-img {
+  display: block;
+  width: clamp(260px, 42vw, 620px);
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.hero-tagline {
+  font-family: var(--font-sans, -apple-system, sans-serif);
+  font-size: clamp(11px, 1.2vw, 14px);
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.92;
+  font-weight: 500;
+  margin-top: 18px;
+}
+
+/* Scroll Cue Indicator */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.scroll-cue-text {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.8;
+}
+
+.scroll-cue-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+  animation: heroScrollPulse 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes heroScrollPulse {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 520px;
+  }
+  .hero-tagline {
+    letter-spacing: 0.16em;
+  }
+  .hero-scroll-cue {
+    bottom: 20px;
+  }
+}

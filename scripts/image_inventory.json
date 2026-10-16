@@ -1,0 +1,729 @@
+{
+  "portraits": [
+    {
+      "file": "00338b3b72d997724fcc69f93b901984.jpg",
+      "width": 1080,
+      "height": 1438,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "01f9b95b49991b192573e15190c0c643.jpg",
+      "width": 736,
+      "height": 919,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "02c58ba48a80d5f9c332534c604c8bae.jpg",
+      "width": 1080,
+      "height": 1350,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "0d545b76c65f07fac2aef3f97927b5f0.jpg",
+      "width": 1080,
+      "height": 1620,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "14a6b0db3180b2b85df1e173cdba466b.jpg",
+      "width": 736,
+      "height": 1111,
+      "ratio": "0.66",
+      "orientation": "portrait"
+    },
+    {
+      "file": "18ebdf0184fba0198d8c48f1b7cf3dfb.jpg",
+      "width": 736,
+      "height": 920,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "29f58f41673f164606871a8a6b657421.jpg",
+      "width": 1200,
+      "height": 1500,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "2a00718f470a52bd495c6756c10dffdb.jpg",
+      "width": 1200,
+      "height": 1500,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "313172c0ba6fe58093501d063cf03a97.jpg",
+      "width": 736,
+      "height": 981,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "31d4ff99a6e6f6d5d75f17643e33da01.jpg",
+      "width": 1179,
+      "height": 1455,
+      "ratio": "0.81",
+      "orientation": "portrait"
+    },
+    {
+      "file": "3200ea02fcd9cf2209dba0eb5813d772.jpg",
+      "width": 1200,
+      "height": 1591,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "347e4fe5a1d081934132ad2aa77f9eaf.jpg",
+      "width": 1066,
+      "height": 1332,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "46dde6133e09f54346a5a7ee891b665f.jpg",
+      "width": 624,
+      "height": 917,
+      "ratio": "0.68",
+      "orientation": "portrait"
+    },
+    {
+      "file": "4dac31907cec640ec51c111aeea3d046.jpg",
+      "width": 640,
+      "height": 1138,
+      "ratio": "0.56",
+      "orientation": "portrait"
+    },
+    {
+      "file": "4eec08ce9717eabeaa490b5f92a75865.jpg",
+      "width": 736,
+      "height": 1104,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "57efe0c78a208adf4c346c40c73942ee.jpg",
+      "width": 736,
+      "height": 1104,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "5a81129008830463fcb4b5bd1d09dde5.jpg",
+      "width": 736,
+      "height": 981,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "64cd3336f0cd757afbbb1db9817adcc5.jpg",
+      "width": 736,
+      "height": 981,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "66a0e78253cb542bb6dc9fcb15cffe63.jpg",
+      "width": 736,
+      "height": 1104,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "68f307c06f638b650637e77dd00c9424.jpg",
+      "width": 720,
+      "height": 1214,
+      "ratio": "0.59",
+      "orientation": "portrait"
+    },
+    {
+      "file": "6QETwDCscY2U361UOc7RpW3A8.png",
+      "width": 1543,
+      "height": 2048,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "747def33d1632f48318aa45f200bdaa0.jpg",
+      "width": 640,
+      "height": 799,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "7894e70662b10ab077a2841a07faa9ff.jpg",
+      "width": 1200,
+      "height": 1499,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "8a3921c922bcd6e734cd6c06f96ff26c.jpg",
+      "width": 1200,
+      "height": 1500,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "8b5c796b2c0508fb74d4a7eeb54ca882.jpg",
+      "width": 736,
+      "height": 1288,
+      "ratio": "0.57",
+      "orientation": "portrait"
+    },
+    {
+      "file": "8c98c31a43fd55dfe0fd6f5d5b6b7040.jpg",
+      "width": 853,
+      "height": 1280,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "8d6d6ef21e0d105824e0815131f1d6a9.jpg",
+      "width": 736,
+      "height": 920,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "942036baa7253ec0083571f4489bfb01.jpg",
+      "width": 676,
+      "height": 1202,
+      "ratio": "0.56",
+      "orientation": "portrait"
+    },
+    {
+      "file": "94c599cdd9f9f8036ba05abf0be25cae.jpg",
+      "width": 736,
+      "height": 1104,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "95e3f3261c184c0bca17fcf64a3241ed.jpg",
+      "width": 736,
+      "height": 981,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "a15b9eba065c69c7d772abddf90ba44a.jpg",
+      "width": 736,
+      "height": 920,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "a544b86495d0ef5c81f479dc14d05517.jpg",
+      "width": 1199,
+      "height": 1495,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "a5e5d783276655369a6e431bd5bacb0c.jpg",
+      "width": 736,
+      "height": 920,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "about-hero-editorial.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "about-team-shirt.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "b12054245bf1269507d63ca11d9f518a.jpg",
+      "width": 736,
+      "height": 1103,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "b8b73696aee8477119b6f7836a322814.jpg",
+      "width": 526,
+      "height": 701,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "bc826b7d11105277238f376a7d376785.jpg",
+      "width": 736,
+      "height": 1030,
+      "ratio": "0.71",
+      "orientation": "portrait"
+    },
+    {
+      "file": "booking-luxury-villa.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "c3272cae583039c6277b694e724a5a7b.jpg",
+      "width": 735,
+      "height": 979,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "c8bf9c35ec8a7b3db1f1fd2dc07b1a04.jpg",
+      "width": 1200,
+      "height": 1600,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "c949b2098bf7ea2860d0902b08b9b52c.jpg",
+      "width": 736,
+      "height": 1104,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "ce904e084f0ff9ba7b1fe77b3fabec77.jpg",
+      "width": 735,
+      "height": 886,
+      "ratio": "0.83",
+      "orientation": "portrait"
+    },
+    {
+      "file": "contact-editorial-intimate.jpg",
+      "width": 768,
+      "height": 1376,
+      "ratio": "0.56",
+      "orientation": "portrait"
+    },
+    {
+      "file": "contact-flowers-editorial.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "contact-modernist-villa.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "CpwsFa5ZJ9iYZ4MsPvqSGtc6w.png",
+      "width": 800,
+      "height": 1200,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "d55afe9a07107ceee5dbbf6d2ec9d977.jpg",
+      "width": 736,
+      "height": 920,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "d5cfba8d7025b62189e3dd0050f4f777.jpg",
+      "width": 853,
+      "height": 1280,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "d765f6250b078e4e9f4c4d5ffb888d36.jpg",
+      "width": 736,
+      "height": 1308,
+      "ratio": "0.56",
+      "orientation": "portrait"
+    },
+    {
+      "file": "d8df6fe6773d5ecbb5d5b954838d0e5c.jpg",
+      "width": 720,
+      "height": 960,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "dd815c6eeebf3bdee8be2aefe4562661.jpg",
+      "width": 712,
+      "height": 1291,
+      "ratio": "0.55",
+      "orientation": "portrait"
+    },
+    {
+      "file": "dfceb4531752949acdea3a718fdac20d.jpg",
+      "width": 735,
+      "height": 980,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "download.png",
+      "width": 1152,
+      "height": 2048,
+      "ratio": "0.56",
+      "orientation": "portrait"
+    },
+    {
+      "file": "e2b2629b4f360efd68fc0ce7bfd8433f.jpg",
+      "width": 736,
+      "height": 981,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "e68139dfda346b7b4668baef05dbb150.jpg",
+      "width": 736,
+      "height": 1008,
+      "ratio": "0.73",
+      "orientation": "portrait"
+    },
+    {
+      "file": "e884ff5a09d92fb35b05ccbe8d9106cd.jpg",
+      "width": 1179,
+      "height": 1451,
+      "ratio": "0.81",
+      "orientation": "portrait"
+    },
+    {
+      "file": "edbf03402b2e6eaedc6a29fb1907825a.jpg",
+      "width": 735,
+      "height": 1103,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "eXuQZAs1IHCgnTbXXb4J01aSf8.png",
+      "width": 1762,
+      "height": 2048,
+      "ratio": "0.86",
+      "orientation": "portrait"
+    },
+    {
+      "file": "fbbffde653371b03dadcd1c165f5e3a3.jpg",
+      "width": 736,
+      "height": 1100,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "fbcca3c7dd64f0e99f29ea48277b32dc.jpg",
+      "width": 735,
+      "height": 1103,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "fffed7bad2f3c22ae1cfcc883c3de5be.jpg",
+      "width": 736,
+      "height": 981,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "golden-curtain-gradient.png",
+      "width": 576,
+      "height": 1024,
+      "ratio": "0.56",
+      "orientation": "portrait"
+    },
+    {
+      "file": "irPGzZ4as3d9UOyvKvLjeLdY.png",
+      "width": 956,
+      "height": 1200,
+      "ratio": "0.80",
+      "orientation": "portrait"
+    },
+    {
+      "file": "lVFQFeCWvJI0oGecw3SpuAkdWEM.png",
+      "width": 1543,
+      "height": 2048,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "m8v8BYEEDPmgtoxEkQmh7RYt6g.png",
+      "width": 992,
+      "height": 1200,
+      "ratio": "0.83",
+      "orientation": "portrait"
+    },
+    {
+      "file": "portfolio-candid-bride-veil.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "PvDD8t5UbQ0nRcI8JAjf7mIwkec.png",
+      "width": 1543,
+      "height": 2048,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "qjRuUPRIA41ljZ1eFw3JH7wRG9g.png",
+      "width": 1543,
+      "height": 2048,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "services-chair-still-life.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "services-hero-dining.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "services-meeting-artists.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "services-wood-texture.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "team-anna-stool.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "team-maya-stool.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "team-noah-stool.jpg",
+      "width": 896,
+      "height": 1200,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "V2qVyLCRyJQ1yUXBBpkLRK2bhU.png",
+      "width": 771,
+      "height": 1024,
+      "ratio": "0.75",
+      "orientation": "portrait"
+    },
+    {
+      "file": "WLEdPcTgNBTISQmFusQW0hEHSss.png",
+      "width": 683,
+      "height": 1024,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    },
+    {
+      "file": "zpKiopRcE0imyInPF1xEZ4ahk4.png",
+      "width": 683,
+      "height": 1024,
+      "ratio": "0.67",
+      "orientation": "portrait"
+    }
+  ],
+  "landscapes": [
+    {
+      "file": "bb79ab10e15a28a1b79a0ebc4d731bd9.jpg",
+      "width": 1199,
+      "height": 799,
+      "ratio": "1.50",
+      "orientation": "landscape"
+    },
+    {
+      "file": "BLvK8NVj7sg4A7Z1rN3UBVdWTbA.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    },
+    {
+      "file": "bZgEr9o6mhezteO3bRZzEnFj7JI.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    },
+    {
+      "file": "CGu38ZDNjmnEscVFO4T6By40k.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    },
+    {
+      "file": "HaxdmIfV4A2LzPqSbCJsTRpgRg.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    },
+    {
+      "file": "HLJc5R8t7No4QbWnqQylHYnL0Ls.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    },
+    {
+      "file": "OGT11HIVUTA30xKimvG7lE9Zn8.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    },
+    {
+      "file": "P0Pj7ZojT4FHUirPwvLcH3VggWg.png",
+      "width": 1920,
+      "height": 1080,
+      "ratio": "1.78",
+      "orientation": "landscape"
+    }
+  ],
+  "squares": [
+    {
+      "file": "6qoPiUBAICKELQAWqbCNZidwKQ.png",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "about-story-still-life.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "b74c0c83eaaadd8e32bcf86c98fb914c.jpg",
+      "width": 960,
+      "height": 960,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "eceb9ca508d46242abf7a9be385e61bc.jpg",
+      "width": 736,
+      "height": 736,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "founder-portrait.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "gallery-slideshow-allure.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "gallery-slideshow-poetry.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "H4UtD50Ug1kmfBdrLv3yKEQNglw.png",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "jwTMtGqn75DlL0naUw5s7ejYeqk.png",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "luxury-pen.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "luxury-pen.png",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "NP8AaokE249VdovW1VFgz08ihCI.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "suieTU4VmBXixVaTwhoM7p9Q0WU.png",
+      "width": 1200,
+      "height": 1200,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "team-anna-brenner.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "team-noah-bennett.jpg",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    },
+    {
+      "file": "ui2sDLnCJCoWybPuARH7NsBGqf0.png",
+      "width": 1024,
+      "height": 1024,
+      "ratio": "1.00",
+      "orientation": "square"
+    }
+  ]
+}

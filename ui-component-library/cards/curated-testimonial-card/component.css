@@ -1,0 +1,91 @@
+/* ==========================================================================
+   CURATED TESTIMONIAL REVIEW CARD - COMPONENT STYLES
+   ========================================================================== */
+
+.testimonial-curated-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(20, 20, 20, 0.08);
+  border-radius: 0px;
+  padding: clamp(32px, 3.5vw, 44px) clamp(24px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.testimonial-curated-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-color: rgba(20, 20, 20, 0.16);
+}
+
+.curated-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.curated-card-counter {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--theme-crimson-blaze, #800A19);
+  text-transform: uppercase;
+}
+
+.curated-card-year {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--theme-ink-faint, #777777);
+  text-transform: uppercase;
+}
+
+.curated-card-quote {
+  font-family: var(--font-serif, 'Italiana', serif);
+  font-size: clamp(16.5px, 1.35vw, 19.5px);
+  font-style: italic;
+  line-height: 1.62;
+  color: var(--theme-ink-black, #141414);
+  margin: 0 0 32px 0;
+}
+
+.curated-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(20, 20, 20, 0.07);
+}
+
+.curated-card-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+.curated-card-couple {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--theme-ink-black, #141414);
+  margin: 0 0 3px 0;
+}
+
+.curated-card-venue {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  color: var(--theme-ink-muted, #555555);
+  margin: 0;
+}

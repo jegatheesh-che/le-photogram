@@ -1,0 +1,70 @@
+/* ==========================================================================
+   ROTATING STUDIO SEAL EMBLEM STYLES
+   ========================================================================== */
+
+.emblem-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.parallax-emblem {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink, #141414);
+}
+
+/* Inverted / Light variant on dark background */
+.emblem-dark .parallax-emblem,
+.emblem-dark {
+  color: #FFFFFF;
+}
+
+.rotating-seal {
+  width: 100%;
+  height: 100%;
+  animation: sealSpin 32s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes sealSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.seal-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.seal-text {
+  font-family: var(--font-sans, "Instrument Sans", sans-serif);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.seal-center-monogram {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.emblem-dark .seal-center-monogram {
+  filter: brightness(0) invert(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-seal {
+    animation: none;
+  }
+}

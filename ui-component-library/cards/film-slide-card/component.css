@@ -1,0 +1,75 @@
+/* ==========================================================================
+   CINEMATIC FILM SLIDE REEL CARD - COMPONENT STYLES
+   ========================================================================== */
+
+.film-slide {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 480px;
+  border-radius: 0px;
+  overflow: hidden;
+  background-color: #000000;
+  border: 1px solid var(--color-border, rgba(20, 20, 20, 0.12));
+}
+
+.film-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.film-slide:hover .film-video {
+  transform: scale(1.05);
+}
+
+.film-slide-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.film-slide:hover .film-slide-scrim {
+  opacity: 0.85;
+}
+
+.film-slide-btn {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 0px;
+  background-color: var(--theme-crimson-blaze, #800A19);
+  color: #FFFFFF;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--theme-crimson-blaze, #800A19);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.film-slide-btn:hover {
+  background-color: var(--theme-ink-black, #141414);
+  border-color: var(--theme-ink-black, #141414);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .film-slide {
+    height: 380px;
+  }
+}

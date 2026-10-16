@@ -1,0 +1,127 @@
+/* ==========================================================================
+   EDITORIAL BUTTONS - COMPONENT STYLES
+   ========================================================================== */
+
+.editorial-buttons-showcase {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 1. Brutalist Outline Button */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 0px;
+  border: 1px solid var(--theme-ink-black, #141414);
+  background-color: transparent;
+  color: var(--theme-ink-black, #141414);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.btn-pill:hover {
+  background-color: var(--theme-ink-black, #141414);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-pill:active {
+  transform: translateY(0);
+}
+
+/* 2. Signature Crimson Primary Button */
+.btn-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 0px;
+  background-color: var(--theme-crimson-blaze, #800A19);
+  color: #FFFFFF;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--theme-crimson-blaze, #800A19);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.btn-pill-dark:hover {
+  background-color: var(--theme-ink-black, #141414);
+  border-color: var(--theme-ink-black, #141414);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.btn-pill-dark:active {
+  transform: translateY(0);
+}
+
+/* 3. Warm Ivory Neutral Button */
+.btn-pill-warm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 0px;
+  background-color: var(--theme-ivory-card, #F7F5EE);
+  color: var(--theme-ink-black, #141414);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--color-border, rgba(20, 20, 20, 0.14));
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.btn-pill-warm:hover {
+  background-color: #FFFFFF;
+  border-color: var(--theme-ink-black, #141414);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 4. Editorial Arrow Link */
+.editorial-hover-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text, #141414);
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+  cursor: pointer;
+}
+
+.editorial-hover-link:hover {
+  color: var(--theme-crimson-blaze, #800A19);
+  gap: 13px;
+}

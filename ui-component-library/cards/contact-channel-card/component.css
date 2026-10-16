@@ -1,0 +1,63 @@
+/* ==========================================================================
+   CONTACT COMMUNICATION CHANNEL CARD - COMPONENT STYLES
+   ========================================================================== */
+
+.contact-channels-group {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.miros-channel-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.miros-channel-item:hover {
+  transform: translateX(6px);
+}
+
+.miros-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--theme-crimson-blaze, #800A19);
+  border: 1px solid rgba(20, 20, 20, 0.14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              color 0.25s ease, 
+              border-color 0.25s ease, 
+              box-shadow 0.25s ease;
+}
+
+.miros-channel-item:hover .miros-icon-circle {
+  transform: scale(1.07);
+  background-color: var(--theme-crimson-blaze, #800A19);
+  color: #FFFFFF;
+  border-color: var(--theme-crimson-blaze, #800A19);
+  box-shadow: 0 8px 22px rgba(128, 10, 25, 0.24);
+}
+
+.miros-channel-text {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #1D1D1D;
+  transition: color 0.2s ease;
+}
+
+.miros-channel-item:hover .miros-channel-text {
+  color: var(--theme-crimson-blaze, #800A19);
+}

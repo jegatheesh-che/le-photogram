@@ -1,0 +1,117 @@
+/* ==========================================================================
+   LE PHOTOGRAM UI COMPONENT LIBRARY — DESIGN TOKENS
+   High-Fashion Bright Editorial Design System (White as Main)
+   ========================================================================== */
+
+/* Web Fonts Definition */
+@font-face {
+  font-family: 'Italiana';
+  src: url('../assets/fonts/Italiana_400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('../assets/fonts/Instrument_Sans_400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('../assets/fonts/Instrument_Sans_500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('../assets/fonts/Instrument_Sans_700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../assets/fonts/Cormorant_Garamond_400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../assets/fonts/Cormorant_Garamond_700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Typography Scale */
+  --font-serif: 'Italiana', serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Primitive Luxury Color System (60 - 30 - 10 Ratio) */
+  --theme-pure-white: #FFFFFF;          /* 60%: Main Canvas Background */
+  --theme-porcelain-light: #FAF8F5;     /* Warm Porcelain Secondary Sections & Footer */
+  --theme-ivory-card: #F7F5EE;          /* Editorial Triptych Board & Showcase Cards */
+  --theme-varden-warm: #FDF0D5;         /* Luxury Champagne / Varden Accent Surface */
+  --theme-ink-black: #141414;           /* 30%: Primary Ink Headlines, Logo & Borders */
+  --theme-ink-muted: #555555;           /* Secondary Descriptions & Body Copy */
+  --theme-ink-faint: #777777;           /* Metadata, Counters, Eyebrows & Tags */
+  --theme-crimson-blaze: #800A19;       /* 10%: Signature Luxury Interactive Crimson */
+  --theme-crimson-bright: #A01224;      /* Hover Crimson Micro-interactions */
+  --theme-crimson-dark: #5B040F;        /* Deep Wine Shadow Underlay */
+
+  /* Semantic UI Tokens */
+  --color-bg: var(--theme-pure-white);
+  --color-bg-alt: var(--theme-porcelain-light);
+  --color-bg-dark: var(--theme-ivory-card);
+  --color-surface: var(--theme-pure-white);
+  --color-surface-hover: var(--theme-varden-warm);
+  --color-surface-warm: var(--theme-varden-warm);
+  --color-surface-warm-text: #780000;
+  --color-text: var(--theme-ink-black);
+  --color-text-secondary: var(--theme-ink-muted);
+  --color-text-muted: var(--theme-ink-faint);
+  --color-border: rgba(20, 20, 20, 0.12);
+  --color-border-faint: rgba(20, 20, 20, 0.06);
+  --color-border-bold: var(--theme-ink-black);
+  --color-accent-primary: var(--theme-crimson-blaze);
+  --color-accent-deep: var(--theme-crimson-dark);
+  --color-accent-subtle: rgba(128, 10, 25, 0.12);
+  --color-accent-warm: var(--theme-varden-warm);
+
+  /* Layout Standards */
+  --container-max: 1200px;
+  --container-inner: 1168px;
+  --section-padding-y: 60px;
+  --section-padding-x: 16px;
+
+  /* Geometry - Crisp Architectural Editorial (0px radius) */
+  --radius-pill: 0px;
+  --radius-card: 0px;
+  --radius-card-sm: 0px;
+
+  /* Motion & Easing Curves */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-luxury: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.35s;
+  --duration-deliberate: 0.6s;
+
+  /* Diffuse Ambient Shadow Hierarchy */
+  --shadow-subtle: 0 4px 20px rgba(18, 18, 18, 0.03), 0 1px 4px rgba(18, 18, 18, 0.02);
+  --shadow-soft: 0 12px 32px rgba(18, 18, 18, 0.04), 0 4px 12px rgba(18, 18, 18, 0.02);
+  --shadow-ambient: 0 20px 48px -4px rgba(18, 18, 18, 0.05), 0 6px 16px -2px rgba(18, 18, 18, 0.02);
+  --shadow-floating: 0 28px 64px -8px rgba(18, 18, 18, 0.06), 0 10px 24px -4px rgba(18, 18, 18, 0.03);
+  --shadow-crimson-glow: 0 12px 30px -4px rgba(128, 10, 25, 0.16), 0 4px 10px rgba(128, 10, 25, 0.08);
+}
