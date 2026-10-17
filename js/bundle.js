@@ -7960,7 +7960,9 @@
       const title = worksSection.querySelector(".section-title");
       const eyebrow = worksSection.querySelector(".section-eyebrow-row");
       const line = worksSection.querySelector(".works-header-line");
-      worksSection.style.backgroundColor = "#FAF8F5";
+      if (!worksSection.classList.contains("works-obsidian-section")) {
+        worksSection.style.backgroundColor = "#FAF8F5";
+      }
       if (ambient) {
         gsapWithCSS.fromTo(
           ambient,
@@ -8782,6 +8784,27 @@
           openLightbox(src, alt);
         });
       });
+      const portfolioTiles = document.querySelectorAll(".portfolio-grid-item");
+      portfolioTiles.forEach((tile) => {
+        if (tile.dataset.hasTileZoomListener) return;
+        tile.dataset.hasTileZoomListener = "true";
+        const triggerOpen = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const img = tile.querySelector("img");
+          if (img) {
+            const src = img.getAttribute("src");
+            const alt = img.getAttribute("alt") || "Fine art photography preview";
+            openLightbox(src, alt);
+          }
+        };
+        tile.addEventListener("click", triggerOpen);
+        tile.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            triggerOpen(e);
+          }
+        });
+      });
     };
     attachZoomListeners();
     const observer = new MutationObserver(() => {
@@ -9195,27 +9218,20 @@
           const itemCategories = item.getAttribute("data-category") || "";
           const match = filterValue === "all" || itemCategories.split(" ").includes(filterValue);
           if (match) {
+            item.classList.remove("filtered-out");
             matching.push(item);
           } else {
+            item.classList.add("filtered-out");
             nonMatching.push(item);
           }
         });
-        nonMatching.forEach((item) => {
-          item.style.display = "none";
-          gsapWithCSS.killTweensOf(item);
-        });
-        matching.forEach((item) => {
-          item.style.display = "";
-          gsapWithCSS.killTweensOf(item);
-        });
         gsapWithCSS.fromTo(
           matching,
-          { opacity: 0, y: 18 },
+          { scale: 0.98 },
           {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            stagger: 0.04,
+            scale: 1,
+            duration: 0.35,
+            stagger: 0.02,
             ease: "power2.out",
             onComplete: () => {
               matching.forEach((item) => {
@@ -9350,29 +9366,83 @@
   // js/booking-slideshow.js
   function initBookingSlideshow() {
     const container = document.getElementById("bookingSlideshow");
-    if (!container) return;
+    if (!container || container.dataset.slideshowInit === "true") return;
+    container.dataset.slideshowInit = "true";
     const slides = container.querySelectorAll(".booking-slide");
     const dots = container.querySelectorAll(".booking-indicator-dot");
     const prevBtn = container.querySelector(".booking-slide-arrow.prev-slide");
     const nextBtn = container.querySelector(".booking-slide-arrow.next-slide");
     const currentNumEl = container.querySelector(".booking-counter-current");
     if (!slides.length) return;
+    const total = slides.length;
     let currentIndex = 0;
     let autoplayTimer = null;
-    const AUTOPLAY_INTERVAL = 5500;
-    function updateSlides(index) {
-      if (index < 0) index = slides.length - 1;
-      if (index >= slides.length) index = 0;
-      currentIndex = index;
-      slides.forEach((slide, i) => {
-        if (i === currentIndex) {
-          slide.classList.add("active");
-          slide.setAttribute("aria-hidden", "false");
-        } else {
+    const AUTOPLAY_INTERVAL = 2e3;
+    slides.forEach((slide, i) => {
+      const img = slide.querySelector(".booking-slide-img");
+      if (i === 0) {
+        gsapWithCSS.set(slide, { opacity: 1, zIndex: 2 });
+        if (img) gsapWithCSS.set(img, { scale: 1 });
+        slide.classList.add("active");
+        slide.setAttribute("aria-hidden", "false");
+      } else {
+        gsapWithCSS.set(slide, { opacity: 0, zIndex: 0 });
+        if (img) gsapWithCSS.set(img, { scale: 1.04 });
+        slide.classList.remove("active");
+        slide.setAttribute("aria-hidden", "true");
+      }
+    });
+    function updateSlides(targetIndex) {
+      if (targetIndex < 0) targetIndex = total - 1;
+      if (targetIndex >= total) targetIndex = 0;
+      if (targetIndex === currentIndex) return;
+      const prevIndex = currentIndex;
+      const prevSlide = slides[prevIndex];
+      const nextSlide = slides[targetIndex];
+      const nextImg = nextSlide ? nextSlide.querySelector(".booking-slide-img") : null;
+      currentIndex = targetIndex;
+      slides.forEach((slide, idx) => {
+        if (idx !== currentIndex && idx !== prevIndex) {
+          gsapWithCSS.set(slide, { zIndex: 0, opacity: 0 });
           slide.classList.remove("active");
           slide.setAttribute("aria-hidden", "true");
         }
       });
+      if (prevSlide) {
+        gsapWithCSS.set(prevSlide, { zIndex: 1, opacity: 1 });
+        prevSlide.classList.remove("active");
+        prevSlide.setAttribute("aria-hidden", "true");
+      }
+      gsapWithCSS.set(nextSlide, { zIndex: 2 });
+      nextSlide.classList.add("active");
+      nextSlide.setAttribute("aria-hidden", "false");
+      gsapWithCSS.fromTo(
+        nextSlide,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.85,
+          ease: "power2.out",
+          overwrite: "auto",
+          onComplete: () => {
+            if (prevSlide && prevIndex !== currentIndex) {
+              gsapWithCSS.set(prevSlide, { opacity: 0, zIndex: 0 });
+            }
+          }
+        }
+      );
+      if (nextImg) {
+        gsapWithCSS.fromTo(
+          nextImg,
+          { scale: 1.04 },
+          {
+            scale: 1,
+            duration: 0.85,
+            ease: "power2.out",
+            overwrite: "auto"
+          }
+        );
+      }
       dots.forEach((dot, i) => {
         if (i === currentIndex) {
           dot.classList.add("active");
@@ -9383,7 +9453,15 @@
         }
       });
       if (currentNumEl) {
-        currentNumEl.textContent = String(currentIndex + 1).padStart(2, "0");
+        gsapWithCSS.to(currentNumEl, {
+          opacity: 0,
+          y: -3,
+          duration: 0.15,
+          onComplete: () => {
+            currentNumEl.textContent = String(currentIndex + 1).padStart(2, "0");
+            gsapWithCSS.to(currentNumEl, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" });
+          }
+        });
       }
     }
     function startAutoplay() {
@@ -9459,7 +9537,6 @@
         startAutoplay();
       }
     });
-    updateSlides(0);
     startAutoplay();
   }
   if (typeof document !== "undefined") {
@@ -9468,6 +9545,334 @@
     } else {
       initBookingSlideshow();
     }
+  }
+
+  // js/works-deck.js
+  function initWorksDeck() {
+    const stage = document.querySelector(".works-qasimi-stage");
+    if (!stage) return;
+    const deckWrapper = stage.querySelector("#worksDeckWrapper");
+    const cards = stage.querySelectorAll(".works-deck-card");
+    const prevBtn = stage.querySelector("#worksDeckPrev");
+    const nextBtn = stage.querySelector("#worksDeckNext");
+    const counterEl = stage.querySelector("#worksCounterCurrent");
+    const progressFill = stage.querySelector("#worksProgressFill");
+    const titleEl = stage.querySelector("#worksActiveTitle");
+    const subEl = stage.querySelector("#worksActiveSub");
+    const mobileCounter = document.querySelector("#worksMobileCounter");
+    const mobileDots = document.querySelectorAll(".works-mobile-dot");
+    if (!cards.length) return;
+    const total = cards.length;
+    let currentIndex = 0;
+    let isAnimating = false;
+    let autoplayTimer = null;
+    const AUTOPLAY_DELAY = 2e3;
+    function getLayoutOffsets() {
+      const isMobile = window.innerWidth <= 768;
+      const isTablet = window.innerWidth > 768 && window.innerWidth <= 1100;
+      if (isMobile) {
+        return {
+          stepX: 16,
+          scaleStep: 0.045,
+          exitX: -40
+        };
+      } else if (isTablet) {
+        return {
+          stepX: 140,
+          scaleStep: 0.07,
+          exitX: -70
+        };
+      } else {
+        return {
+          stepX: 185,
+          scaleStep: 0.07,
+          exitX: -85
+        };
+      }
+    }
+    function updateDeck(targetIndex, direction = "next", isInitial = false) {
+      if (targetIndex < 0) targetIndex = total - 1;
+      if (targetIndex >= total) targetIndex = 0;
+      if (targetIndex === currentIndex && !isInitial) return;
+      const prevIndex = currentIndex;
+      currentIndex = targetIndex;
+      isAnimating = true;
+      const { stepX, scaleStep, exitX } = getLayoutOffsets();
+      cards.forEach((card, i) => {
+        const rel = (i - currentIndex + total) % total;
+        card.setAttribute("data-pos", rel);
+        card.setAttribute("aria-hidden", rel === 0 ? "false" : "true");
+        let targetX = 0;
+        let targetScale = 1;
+        let targetOpacity = 1;
+        let targetZ = 10;
+        let pointerEvents = "auto";
+        if (rel === 0) {
+          targetX = 0;
+          targetScale = 1;
+          targetOpacity = 1;
+          targetZ = 10;
+          card.classList.add("is-active");
+        } else if (rel === 1) {
+          targetX = stepX * 1;
+          targetScale = 1 - scaleStep * 1;
+          targetOpacity = 0.88;
+          targetZ = 8;
+          card.classList.remove("is-active");
+        } else if (rel === 2) {
+          targetX = stepX * 2;
+          targetScale = 1 - scaleStep * 2;
+          targetOpacity = 0.65;
+          targetZ = 6;
+          card.classList.remove("is-active");
+        } else if (rel === 3) {
+          targetX = stepX * 2.8;
+          targetScale = 1 - scaleStep * 3;
+          targetOpacity = 0.38;
+          targetZ = 4;
+          card.classList.remove("is-active");
+        } else {
+          targetX = stepX * 3.4;
+          targetScale = 1 - scaleStep * 4;
+          targetOpacity = 0;
+          targetZ = 2;
+          pointerEvents = "none";
+          card.classList.remove("is-active");
+        }
+        if (isInitial) {
+          card.style.zIndex = targetZ;
+          card.style.pointerEvents = pointerEvents;
+          gsapWithCSS.set(card, {
+            x: targetX,
+            scale: targetScale,
+            opacity: targetOpacity
+          });
+        } else if (direction === "next" && i === prevIndex) {
+          card.style.zIndex = 11;
+          card.style.pointerEvents = "none";
+          card.classList.remove("is-active");
+          gsapWithCSS.to(card, {
+            x: exitX,
+            scale: 0.96,
+            opacity: 0,
+            duration: 0.58,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsapWithCSS.set(card, {
+                x: targetX,
+                scale: targetScale,
+                opacity: 0
+              });
+              card.style.zIndex = targetZ;
+            }
+          });
+        } else if (direction === "prev" && rel === 0) {
+          card.style.zIndex = 10;
+          card.style.pointerEvents = pointerEvents;
+          gsapWithCSS.fromTo(
+            card,
+            { x: exitX, scale: 0.96, opacity: 0 },
+            {
+              x: 0,
+              scale: 1,
+              opacity: 1,
+              duration: 0.65,
+              ease: "power3.out",
+              overwrite: "auto"
+            }
+          );
+        } else {
+          card.style.zIndex = targetZ;
+          card.style.pointerEvents = pointerEvents;
+          gsapWithCSS.to(card, {
+            x: targetX,
+            scale: targetScale,
+            opacity: targetOpacity,
+            duration: 0.68,
+            ease: "power3.out",
+            overwrite: "auto"
+          });
+        }
+      });
+      if (counterEl) {
+        counterEl.textContent = String(currentIndex + 1).padStart(2, "0");
+      }
+      if (progressFill) {
+        const progressPercent = (currentIndex + 1) / total * 100;
+        gsapWithCSS.to(progressFill, {
+          width: `${progressPercent}%`,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
+      const activeCard = cards[currentIndex];
+      const newTitle = activeCard.getAttribute("data-title") || "";
+      const newSub = activeCard.getAttribute("data-sub") || "";
+      if (titleEl && newTitle) {
+        gsapWithCSS.to(titleEl, {
+          opacity: 0,
+          y: -4,
+          duration: 0.15,
+          onComplete: () => {
+            titleEl.textContent = newTitle;
+            gsapWithCSS.to(titleEl, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" });
+          }
+        });
+      }
+      if (subEl && newSub) {
+        gsapWithCSS.to(subEl, {
+          opacity: 0,
+          y: -3,
+          duration: 0.15,
+          onComplete: () => {
+            subEl.textContent = newSub;
+            gsapWithCSS.to(subEl, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" });
+          }
+        });
+      }
+      if (mobileCounter) {
+        mobileCounter.textContent = `0${currentIndex + 1} / 0${total}`;
+      }
+      if (mobileDots && mobileDots.length) {
+        mobileDots.forEach((dot, idx) => {
+          dot.classList.toggle("is-active", idx === currentIndex);
+        });
+      }
+      setTimeout(() => {
+        isAnimating = false;
+      }, 600);
+    }
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(() => {
+        updateDeck(currentIndex + 1, "next");
+      }, AUTOPLAY_DELAY);
+    }
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        stopAutoplay();
+        updateDeck(currentIndex - 1, "prev");
+        startAutoplay();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        stopAutoplay();
+        updateDeck(currentIndex + 1, "next");
+        startAutoplay();
+      });
+    }
+    if (mobileDots && mobileDots.length) {
+      mobileDots.forEach((dot, idx) => {
+        dot.addEventListener("click", (e) => {
+          e.preventDefault();
+          stopAutoplay();
+          updateDeck(idx, idx > currentIndex ? "next" : "prev");
+          startAutoplay();
+        });
+      });
+    }
+    let isSwiping = false;
+    cards.forEach((card, idx) => {
+      card.addEventListener("click", (e) => {
+        if (isSwiping) {
+          e.preventDefault();
+          return;
+        }
+        const rel = (idx - currentIndex + total) % total;
+        if (rel === 0) {
+          window.location.href = "portfolio.html";
+        } else {
+          e.preventDefault();
+          stopAutoplay();
+          updateDeck(idx, idx > currentIndex ? "next" : "prev");
+          startAutoplay();
+        }
+      });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+    let touchStartX = 0;
+    let touchEndX = 0;
+    if (deckWrapper) {
+      deckWrapper.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          isSwiping = false;
+        },
+        { passive: true }
+      );
+      deckWrapper.addEventListener(
+        "touchmove",
+        (e) => {
+          if (Math.abs(e.changedTouches[0].screenX - touchStartX) > 12) {
+            isSwiping = true;
+          }
+        },
+        { passive: true }
+      );
+      deckWrapper.addEventListener(
+        "touchend",
+        (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchEndX - touchStartX;
+          if (Math.abs(diff) > 40) {
+            stopAutoplay();
+            if (diff < 0) {
+              updateDeck(currentIndex + 1, "next");
+            } else {
+              updateDeck(currentIndex - 1, "prev");
+            }
+            startAutoplay();
+            setTimeout(() => {
+              isSwiping = false;
+            }, 300);
+          } else {
+            setTimeout(() => {
+              isSwiping = false;
+            }, 50);
+          }
+        },
+        { passive: true }
+      );
+      deckWrapper.addEventListener("mouseenter", stopAutoplay);
+      deckWrapper.addEventListener("mouseleave", startAutoplay);
+    }
+    window.addEventListener("keydown", (e) => {
+      if (document.activeElement && ["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
+        return;
+      }
+      const rect = stage.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) return;
+      if (e.key === "ArrowRight") {
+        stopAutoplay();
+        updateDeck(currentIndex + 1, "next");
+        startAutoplay();
+      } else if (e.key === "ArrowLeft") {
+        stopAutoplay();
+        updateDeck(currentIndex - 1, "prev");
+        startAutoplay();
+      }
+    });
+    window.addEventListener("resize", () => {
+      updateDeck(currentIndex, "next", true);
+    });
+    updateDeck(0, "next", true);
+    startAutoplay();
   }
 
   // js/main.js
@@ -9500,6 +9905,7 @@
     initPortfolioFilter();
     initForms();
     initBookingSlideshow();
+    initWorksDeck();
     if (document.querySelector("#work-detail-hero-section") || document.querySelector(".work-detail-grid")) {
       initWorkDetail();
     }

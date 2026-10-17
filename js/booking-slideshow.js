@@ -25,12 +25,15 @@ export function initBookingSlideshow() {
 
   // Initialize initial slides state
   slides.forEach((slide, i) => {
+    const img = slide.querySelector('.booking-slide-img');
     if (i === 0) {
-      gsap.set(slide, { opacity: 1, scale: 1, zIndex: 2 });
+      gsap.set(slide, { opacity: 1, zIndex: 2 });
+      if (img) gsap.set(img, { scale: 1 });
       slide.classList.add('active');
       slide.setAttribute('aria-hidden', 'false');
     } else {
-      gsap.set(slide, { opacity: 0, scale: 1.04, zIndex: 0 });
+      gsap.set(slide, { opacity: 0, zIndex: 0 });
+      if (img) gsap.set(img, { scale: 1.04 });
       slide.classList.remove('active');
       slide.setAttribute('aria-hidden', 'true');
     }
@@ -44,6 +47,7 @@ export function initBookingSlideshow() {
     const prevIndex = currentIndex;
     const prevSlide = slides[prevIndex];
     const nextSlide = slides[targetIndex];
+    const nextImg = nextSlide ? nextSlide.querySelector('.booking-slide-img') : null;
     currentIndex = targetIndex;
 
     // Keep prevSlide under the incoming slide so it never flashes black
@@ -66,13 +70,12 @@ export function initBookingSlideshow() {
     nextSlide.classList.add('active');
     nextSlide.setAttribute('aria-hidden', 'false');
 
-    // Buttery smooth crossfade with subtle cinematic scale ease
+    // Buttery smooth crossfade on slide container
     gsap.fromTo(
       nextSlide,
-      { opacity: 0, scale: 1.04 },
+      { opacity: 0 },
       {
         opacity: 1,
-        scale: 1.0,
         duration: 0.85,
         ease: 'power2.out',
         overwrite: 'auto',
@@ -83,6 +86,20 @@ export function initBookingSlideshow() {
         }
       }
     );
+
+    // Subtle cinematic scale on inner image only (never expands slide container)
+    if (nextImg) {
+      gsap.fromTo(
+        nextImg,
+        { scale: 1.04 },
+        {
+          scale: 1.0,
+          duration: 0.85,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        }
+      );
+    }
 
     // Update Dots
     dots.forEach((dot, i) => {
