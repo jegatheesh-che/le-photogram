@@ -11,7 +11,7 @@ function walk(dir) {
       if (file !== 'node_modules' && file !== '.git' && file !== 'dist') {
         results = results.concat(walk(fullPath));
       }
-    } else if (file.endsWith('.html')) {
+    } else if (file.endsWith('.html') && !file.includes('component.html')) {
       results.push(fullPath);
     }
   }
@@ -26,32 +26,30 @@ for (const file of files) {
   const p = isLegal ? '../' : '';
   const leg = isLegal ? './' : 'legal/';
 
-  const footerHtml = `  <!-- Footer -->
+  const footerHtml = `  <!-- Footer - Framer Evermore Reference Match -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="${p}assets/brand/full-logo-black.png" alt="Le PhotoGRAM" class="footer-logo-img">
-          <p class="footer-subtitle">Fine Art Wedding Photography &amp; Films.</p>
-          <p class="footer-locations">London &bull; Paris &bull; Lake Como &bull; New York</p>
-          <a href="mailto:atelier@lephotogram.com" class="footer-email">atelier@lephotogram.com</a>
+          <a href="${p}index.html" class="footer-brand-title">LE PHOTOGRAM</a>
+          <p class="footer-subtitle">Wedding Photo &amp; Film Studio.</p>
         </div>
         <div>
-          <h4 class="footer-col-title">Navigation</h4>
+          <h4 class="footer-col-title">Explore</h4>
           <ul class="footer-links">
             <li><a href="${p}index.html">Home</a></li>
-            <li><a href="${p}about.html">About Us</a></li>
-            <li><a href="${p}portfolio.html">Portfolio</a></li>
-            <li><a href="${p}services.html">Collections</a></li>
+            <li><a href="${p}about.html">About</a></li>
+            <li><a href="${p}portfolio.html">Works</a></li>
+            <li><a href="${p}services.html">Services</a></li>
+            <li><a href="${p}contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="footer-col-title">Experience</h4>
+          <h4 class="footer-col-title">Legal</h4>
           <ul class="footer-links">
-            <li><a href="${p}testimonials.html">Client Reflections</a></li>
-            <li><a href="${p}faq.html">Atelier FAQ</a></li>
-            <li><a href="${p}booking.html">Reserve Date</a></li>
-            <li><a href="${p}contact.html">Studio Inquiries</a></li>
+            <li><a href="${leg}privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="${leg}terms-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="${leg}cookie-policy.html">Cookie Policy</a></li>
           </ul>
         </div>
         <div>
@@ -60,26 +58,46 @@ for (const file of files) {
             <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
             <li><a href="https://twitter.com" target="_blank" rel="noopener">X (Twitter)</a></li>
-            <li><a href="https://wa.me/12125550192" target="_blank" rel="noopener">WhatsApp Direct</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Le PhotoGRAM. All rights reserved.</p>
-        <div class="footer-legal-inline">
-          <a href="${leg}privacy-policy.html">Privacy Policy</a>
-          <span>&bull;</span>
-          <a href="${leg}terms-conditions.html">Terms &amp; Conditions</a>
-          <span>&bull;</span>
-          <a href="${leg}cookie-policy.html">Cookie Policy</a>
+
+      <div class="footer-middle-bar">
+        <p class="footer-copyright">&copy; 2026 Le Photogram. All rights reserved.</p>
+        <div class="footer-attribution">
+          <span class="footer-attribution-item">
+            <span class="footer-attribution-dot" aria-hidden="true"></span>
+            Fine Art Wedding Atelier
+          </span>
+          <span class="footer-attribution-item">Design by Atelier Le Photogram</span>
         </div>
-        <a href="#top" class="footer-back-to-top">Back to top &uarr;</a>
+      </div>
+
+      <div class="footer-viewfinder-box">
+        <div class="footer-corner-bracket corner-tl" aria-hidden="true"></div>
+        <div class="footer-corner-bracket corner-tr" aria-hidden="true"></div>
+        <div class="footer-corner-bracket corner-bl" aria-hidden="true"></div>
+        <div class="footer-corner-bracket corner-br" aria-hidden="true"></div>
+
+        <a href="${p}index.html" class="footer-monumental-link" aria-label="Le Photogram - Return to Home">
+          <svg viewBox="0 0 1300 175" class="footer-monumental-svg" preserveAspectRatio="xMidYMid meet" aria-label="Le Photogram">
+            <defs>
+              <linearGradient id="footerTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                <stop offset="55%" stop-color="#ffffff" stop-opacity="0.32" />
+                <stop offset="88%" stop-color="#ffffff" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.01" />
+              </linearGradient>
+            </defs>
+            <text x="50%" y="66%" text-anchor="middle" dominant-baseline="middle" font-family="'Italiana', serif" font-size="142" letter-spacing="0.04em" fill="url(#footerTextGrad)">LE PHOTOGRAM</text>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>`;
 
   let content = fs.readFileSync(file, 'utf8');
-  const footerRegex = /<!-- Footer -->[\s\S]*?<\/footer>/;
+  const footerRegex = /<!-- Footer[\s\S]*?<\/footer>/;
   if (footerRegex.test(content)) {
     content = content.replace(footerRegex, footerHtml);
     fs.writeFileSync(file, content, 'utf8');
