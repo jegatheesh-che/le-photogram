@@ -34,15 +34,19 @@
 
 .hero-video-bg {
   position: absolute;
-  top: -15%;
-  left: -5%;
-  width: 110%;
-  height: 130%;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none !important;
   object-fit: cover;
   z-index: 1;
   opacity: 0.85;
   will-change: transform;
   pointer-events: none;
+  transform: translate(-50%, -50%);
 }
 
 .hero-overlay {

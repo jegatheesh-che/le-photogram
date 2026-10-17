@@ -20,10 +20,11 @@ export function initParallax() {
     if (heroVideo) {
       gsap.fromTo(
         heroVideo,
-        { yPercent: 0, scale: 1.05 },
+        { xPercent: -50, yPercent: -50, scale: 1.05 },
         {
-          yPercent: 24,
-          scale: 1.14,
+          xPercent: -50,
+          yPercent: -42,
+          scale: 1.15,
           ease: 'none',
           scrollTrigger: {
             trigger: heroSection,
