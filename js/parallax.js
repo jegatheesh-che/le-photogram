@@ -241,19 +241,17 @@ export function initParallax() {
     }
   }
 
-  // 4. "A GLIMPSE INTO OUR WORK" Luxury Parallax Theme Transition
+  // 4. "A GLIMPSE INTO OUR WORK" Framer Reference Parallax Architecture
   const worksSection = document.querySelector('.works-section');
   if (worksSection) {
     const ambient = worksSection.querySelector('.works-parallax-ambient');
     const watermark = worksSection.querySelector('.works-watermark-text');
-    const header = worksSection.querySelector('.section-header');
-    const title = worksSection.querySelector('.section-title');
-    const eyebrow = worksSection.querySelector('.section-eyebrow-row');
-    const line = worksSection.querySelector('.works-header-line');
-
-    if (!worksSection.classList.contains('works-obsidian-section')) {
-      worksSection.style.backgroundColor = '#FAF8F5';
-    }
+    const glimpseHeader = worksSection.querySelector('.glimpse-header');
+    const stage = worksSection.querySelector('.glimpse-stage');
+    const colLeft = worksSection.querySelector('.glimpse-col-left');
+    const colRight = worksSection.querySelector('.glimpse-col-right');
+    const cards = worksSection.querySelectorAll('.glimpse-card');
+    const cta = worksSection.querySelector('.glimpse-cta-wrap');
 
     // Ambient Luxury Glow Parallax
     if (ambient) {
@@ -274,13 +272,13 @@ export function initParallax() {
       );
     }
 
-    // Editorial Watermark Multi-Plane Scrub
+    // Watermark Multi-Plane Scrub
     if (watermark) {
       gsap.fromTo(
         watermark,
-        { xPercent: 8, yPercent: -15, opacity: 0.015 },
+        { xPercent: 6, yPercent: -15, opacity: 0.015 },
         {
-          xPercent: -8,
+          xPercent: -6,
           yPercent: 25,
           opacity: 0.045,
           ease: 'none',
@@ -294,101 +292,101 @@ export function initParallax() {
       );
     }
 
-    // Header Entrance Parallax Reveal
-    if (header) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 88%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      if (eyebrow) {
-        tl.fromTo(
-          eyebrow,
-          { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }
-        );
-      }
-
-      if (title) {
-        tl.fromTo(
-          title,
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' },
-          '-=0.45'
-        );
-      }
-
-      if (line) {
-        tl.fromTo(
-          line,
-          { scaleX: 0, opacity: 0 },
-          { scaleX: 1, opacity: 1, duration: 1.2, ease: 'power2.out' },
-          '-=0.75'
-        );
-      }
+    // Title Entrance & Smooth Vertical Parallax
+    if (glimpseHeader) {
+      gsap.fromTo(
+        glimpseHeader,
+        { y: 35, opacity: 0.8 },
+        {
+          y: -25,
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: glimpseHeader,
+            start: 'top 95%',
+            end: 'bottom 15%',
+            scrub: 0.8,
+          },
+        }
+      );
     }
 
-    // Staggered Asymmetrical Card Parallax (Desktop)
-    const isDesktop = window.matchMedia('(min-width: 811px)').matches;
-    if (isDesktop) {
-      const col1Cards = worksSection.querySelectorAll('.w-card-1, .w-card-4');
-      const col2Cards = worksSection.querySelectorAll('.w-card-2, .w-card-5');
-      const centerCard = worksSection.querySelector('.w-card-3');
-
-      col1Cards.forEach((card) => {
+    // Desktop Asymmetrical Column Multi-Speed Parallax
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 811px)', () => {
+      if (stage && colRight) {
         gsap.fromTo(
-          card,
-          { y: 35 },
+          colRight,
+          { y: 90 },
           {
-            y: -35,
+            y: -130,
             ease: 'none',
             scrollTrigger: {
-              trigger: card,
+              trigger: stage,
               start: 'top bottom',
               end: 'bottom top',
               scrub: 1.2,
             },
           }
         );
-      });
+      }
 
-      col2Cards.forEach((card) => {
+      if (stage && colLeft) {
         gsap.fromTo(
-          card,
-          { y: -35 },
+          colLeft,
+          { y: 20 },
           {
-            y: 35,
+            y: -40,
             ease: 'none',
             scrollTrigger: {
-              trigger: card,
+              trigger: stage,
               start: 'top bottom',
               end: 'bottom top',
-              scrub: 1.4,
-            },
-          }
-        );
-      });
-
-      if (centerCard) {
-        gsap.fromTo(
-          centerCard,
-          { scale: 0.98, y: 25 },
-          {
-            scale: 1.01,
-            y: -25,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: centerCard,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1.3,
+              scrub: 0.9,
             },
           }
         );
       }
+    });
+
+    // Inner Image Viewport Parallax (Photo glides within frame on scroll)
+    cards.forEach((card) => {
+      const img = card.querySelector('.glimpse-card-img');
+      if (!img) return;
+
+      gsap.fromTo(
+        img,
+        { yPercent: -10 },
+        {
+          yPercent: 10,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.8,
+          },
+        }
+      );
+    });
+
+    // CTA Entrance Animation
+    if (cta) {
+      gsap.fromTo(
+        cta,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: cta,
+            start: 'top 92%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
     }
   }
 }
