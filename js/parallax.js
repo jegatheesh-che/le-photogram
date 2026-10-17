@@ -18,13 +18,13 @@ export function initParallax() {
 
     // Scroll-driven Parallax Scrubbing
     if (heroVideo) {
+      gsap.set(heroVideo, { transformOrigin: 'center center' });
       gsap.fromTo(
         heroVideo,
-        { xPercent: -50, yPercent: -50, scale: 1.05 },
+        { scale: 1.08, yPercent: 0 },
         {
-          xPercent: -50,
-          yPercent: -42,
-          scale: 1.15,
+          scale: 1.18,
+          yPercent: 12,
           ease: 'none',
           scrollTrigger: {
             trigger: heroSection,

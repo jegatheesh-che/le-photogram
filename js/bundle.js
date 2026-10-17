@@ -7752,13 +7752,13 @@
       const heroOverlay = heroSection.querySelector(".hero-overlay");
       const heroScrollCue = heroSection.querySelector(".hero-scroll-cue");
       if (heroVideo) {
+        gsapWithCSS.set(heroVideo, { transformOrigin: "center center" });
         gsapWithCSS.fromTo(
           heroVideo,
-          { xPercent: -50, yPercent: -50, scale: 1.05 },
+          { scale: 1.08, yPercent: 0 },
           {
-            xPercent: -50,
-            yPercent: -42,
-            scale: 1.15,
+            scale: 1.18,
+            yPercent: 12,
             ease: "none",
             scrollTrigger: {
               trigger: heroSection,
