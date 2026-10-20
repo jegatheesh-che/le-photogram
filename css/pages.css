@@ -2435,10 +2435,55 @@ body:not(.home-page) .site-header {
 }
 
 .portfolio-grid-item.filtered-out {
-  opacity: 0.15;
-  filter: grayscale(80%);
-  pointer-events: none;
-  transform: scale(0.98);
+  display: none !important;
+}
+
+/* ── Filtered Mode Responsive Editorial Grid ── */
+.portfolio-bento-grid.is-filtered {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: var(--port-gap) !important;
+  width: 100% !important;
+}
+
+.portfolio-bento-grid.is-filtered .port-block,
+.portfolio-bento-grid.is-filtered .port-col-1,
+.portfolio-bento-grid.is-filtered .port-col-2,
+.portfolio-bento-grid.is-filtered .port-subrow,
+.portfolio-bento-grid.is-filtered .port-p2-col-left,
+.portfolio-bento-grid.is-filtered .port-p2-col-mid,
+.portfolio-bento-grid.is-filtered .port-p2-col-right,
+.portfolio-bento-grid.is-filtered .port-p3-col-left,
+.portfolio-bento-grid.is-filtered .port-p3-col-right,
+.portfolio-bento-grid.is-filtered .port-p3-twin-row,
+.portfolio-bento-grid.is-filtered .port-p3-subrow-1,
+.portfolio-bento-grid.is-filtered .port-p3-subrow-2,
+.portfolio-bento-grid.is-filtered .port-p3-subrow-3 {
+  display: contents !important;
+}
+
+.portfolio-bento-grid.is-filtered .portfolio-grid-item {
+  aspect-ratio: 4 / 3 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.portfolio-bento-grid.is-filtered .portfolio-grid-item.filtered-out {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .portfolio-bento-grid.is-filtered {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-bento-grid.is-filtered {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .portfolio-bento-grid .portfolio-img-box {
@@ -2501,6 +2546,27 @@ body:not(.home-page) .site-header {
   font-weight: 400;
   color: #ffffff;
   line-height: 1.2;
+}
+
+/* Dynamic Uploads Bento Extension */
+.port-block-dynamic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--port-gap);
+  width: 100%;
+}
+.port-block-dynamic .portfolio-grid-item {
+  aspect-ratio: 4 / 3;
+}
+@media (max-width: 900px) {
+  .port-block-dynamic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .port-block-dynamic {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive Media Queries */
@@ -9765,3 +9831,44 @@ body.about-page .mobile-menu-toggle span {
 
 
 
+
+/* Services Category Divider for "Beyond Weddings" */
+.services-category-divider {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 640px;
+  margin: clamp(60px, 8vw, 110px) auto clamp(70px, 9vw, 120px) auto;
+  padding: 36px 28px;
+  background: #FFFFFF;
+  border: 1px solid rgba(20, 20, 20, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.services-category-pill {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #800000;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.services-category-title {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3vw, 32px);
+  color: #141414;
+  margin: 0 0 10px 0;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.services-category-desc {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0;
+}

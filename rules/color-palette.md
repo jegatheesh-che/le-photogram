@@ -18,8 +18,8 @@ This document defines the official **High-Fashion Bright Editorial (White as Mai
 | **Deep Ink Black** | `#141414` | **Primary Typography & Anchors**: High-contrast, razor-sharp editorial headlines, wordmark, logo, buttons, and navigation links. |
 | **Muted Ink Charcoal** | `#555555` | **Secondary Descriptions & Copy**: Subtitles, paragraphs, and narrative text. |
 | **Faint Ink Grey** | `#777777` | **Metadata & Dates**: Section counters, wedding story dates (`Aug 29, 2026`), role tags, and fine labels. |
-| **Signature Crimson Red** | `#800A19` | **Luxury Interactive Accent**: Section eyebrows, primary CTA buttons, active link underlines, and hover highlights. |
-| **Interactive Hover Crimson**| `#A01224` | **Micro-interactions**: Button hover states, icon highlights, and active nav links. |
+| **Signature Crimson Red** | `#800000` | **Luxury Interactive Accent**: Section eyebrows, primary CTA buttons, active link underlines, and hover highlights. |
+| **Interactive Hover Crimson**| `#9E0000` | **Micro-interactions**: Button hover states, icon highlights, and active nav links. |
 
 ---
 
@@ -35,9 +35,9 @@ This document defines the official **High-Fashion Bright Editorial (White as Mai
 * **Muted Charcoal:** Descriptions, body text, and footer links.
 * **Crisp Hairline Borders:** `1px solid rgba(20, 20, 20, 0.12)` structuring rows, cards, and dividers.
 
-### 10% — Signature Crimson & Warm Luxury Accents (`#800A19` & `#FDF0D5`)
-* **Signature Crimson (`#800A19`):** Section eyebrows (`(01) ABOUT`, `(02) WORKS`), primary CTA buttons, active links, hover states.
-* **Warm Ivory Board (`#F7F5EE`):** The 3-column architectural About board, testimonial quote card.
+### 10% — Signature Crimson & Warm Luxury Accents (`#800000` & `#FDF0D5`)
+* **Signature Crimson (`#800000`):** Section eyebrows (`(01) ABOUT`, `(02) WORKS`), primary CTA buttons, active links, hover states.
+* **Warm Ivory Board (`#FDF0D5` / `#F7F5EE`):** The 3-column architectural About board, testimonial quote card.
 
 ---
 
@@ -53,9 +53,9 @@ This document defines the official **High-Fashion Bright Editorial (White as Mai
   --theme-ink-black: #141414;           /* Primary Ink Typography */
   --theme-ink-muted: #555555;           /* Secondary Body & Description */
   --theme-ink-faint: #777777;           /* Metadata, Eyebrows & Tags */
-  --theme-crimson-blaze: #800A19;       /* Signature Luxury Crimson Red */
-  --theme-crimson-bright: #A01224;      /* Interactive Hover Crimson */
-  --theme-crimson-dark: #5B040F;        /* Deep Wine Shadow */
+  --theme-crimson-blaze: #800000;       /* Signature Luxury Maroon (#800000) */
+  --theme-crimson-bright: #9E0000;      /* Interactive Hover Maroon */
+  --theme-crimson-dark: #500000;        /* Deep Maroon Shadow */
 
   /* Semantic UI Colors */
   --color-bg: var(--theme-pure-white);
@@ -64,7 +64,7 @@ This document defines the official **High-Fashion Bright Editorial (White as Mai
   --color-surface: var(--theme-pure-white);
   --color-surface-hover: var(--theme-varden-warm);
   --color-surface-warm: var(--theme-varden-warm);
-  --color-surface-warm-text: #780000;
+  --color-surface-warm-text: #800000;
   --color-text: var(--theme-ink-black);
   --color-text-secondary: var(--theme-ink-muted);
   --color-text-muted: var(--theme-ink-faint);
@@ -73,7 +73,7 @@ This document defines the official **High-Fashion Bright Editorial (White as Mai
   --color-border-bold: var(--theme-ink-black);
   --color-accent-primary: var(--theme-crimson-blaze);
   --color-accent-deep: var(--theme-crimson-dark);
-  --color-accent-subtle: rgba(128, 10, 25, 0.12);
+  --color-accent-subtle: rgba(128, 0, 0, 0.12);
   --color-accent-warm: var(--theme-varden-warm);
 }
 ```

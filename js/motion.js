@@ -590,13 +590,10 @@ function initCinematicDollyZoom() {
     '.triptych-stacked-img',
     '.axis-overlap-photo',
     '.atelier-frame img',
-    '.testimonial-avatar',
     '.about-pullquote-img',
-    '.how-featured-img',
     '.allure-portrait-img',
     '.contact-arch-photo',
     '.floral-portrait-img',
-    '.curated-card-avatar',
   ];
 
   const images = document.querySelectorAll(imageSelectors.join(', '));

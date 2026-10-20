@@ -1,0 +1,304 @@
+const fs = require('fs');
+
+const updatedGallery = [
+  {
+    "id": "seed-1",
+    "title": "Highlands Golden Hour Ceremony",
+    "alt": "Highlands Golden Hour Ceremony",
+    "category": "weddings",
+    "image_path": "assets/images/img95.webp",
+    "layout_class": "port-b1",
+    "block": 1,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-2",
+    "title": "Editorial Fashion Silhouette",
+    "alt": "Editorial Fashion Silhouette",
+    "category": "editorial portraits",
+    "image_path": "assets/images/img84.webp",
+    "layout_class": "port-b4",
+    "block": 1,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-3",
+    "title": "Fine Art Bridal Reverie",
+    "alt": "Fine Art Bridal Reverie",
+    "category": "weddings portraits",
+    "image_path": "assets/images/img77.webp",
+    "layout_class": "port-b2",
+    "block": 1,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-4",
+    "title": "Literary Light Study",
+    "alt": "Literary Light Study",
+    "category": "editorial portraits",
+    "image_path": "assets/images/img80.webp",
+    "layout_class": "port-b3",
+    "block": 1,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-5",
+    "title": "Château Courtyard Vows",
+    "alt": "Château Courtyard Vows",
+    "category": "weddings",
+    "image_path": "assets/images/glimpse-clara-theo.webp",
+    "layout_class": "port-b5",
+    "block": 1,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-6",
+    "title": "Sculptural Form in Sun",
+    "alt": "Sculptural Form in Sun",
+    "category": "editorial portraits",
+    "image_path": "assets/images/img78.webp",
+    "layout_class": "port-b6",
+    "block": 1,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-7",
+    "title": "Riviera Yacht Promenade",
+    "alt": "Riviera Yacht Promenade",
+    "category": "portraits events",
+    "image_path": "assets/images/img86.webp",
+    "layout_class": "port-b7",
+    "block": 2,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-8",
+    "title": "Grand Colonnade Procession",
+    "alt": "Grand Colonnade Procession",
+    "category": "weddings events",
+    "image_path": "assets/images/img66.webp",
+    "layout_class": "port-b10",
+    "block": 2,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-9",
+    "title": "Cathedral Veil Staircase Ascent",
+    "alt": "Cathedral Veil Staircase Ascent",
+    "category": "weddings",
+    "image_path": "assets/images/img102.webp",
+    "layout_class": "port-b9",
+    "block": 2,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-10",
+    "title": "Blush & Lilac Bridal Florals",
+    "alt": "Blush & Lilac Bridal Florals",
+    "category": "weddings events",
+    "image_path": "assets/images/img103.webp",
+    "layout_class": "port-b8",
+    "block": 2,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-11",
+    "title": "Maternal Embrace in Sunlight",
+    "alt": "Maternal Embrace in Sunlight",
+    "category": "events portraits",
+    "image_path": "assets/images/img35.webp",
+    "layout_class": "port-b11",
+    "block": 2,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-12",
+    "title": "Golden Shoreline Waltz",
+    "alt": "Golden Shoreline Waltz",
+    "category": "editorial events",
+    "image_path": "assets/images/img79.webp",
+    "layout_class": "port-b12",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-13",
+    "title": "Sacred Bridal Mehndi Artistry",
+    "alt": "Sacred Bridal Mehndi Artistry",
+    "category": "weddings events",
+    "image_path": "assets/images/img10.webp",
+    "layout_class": "port-b15",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-14",
+    "title": "Tide & Silhouette Promenade",
+    "alt": "Tide & Silhouette Promenade",
+    "category": "portraits editorial",
+    "image_path": "assets/images/img11.webp",
+    "layout_class": "port-b16",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-15",
+    "title": "Joyous Wedding Celebration",
+    "alt": "Joyous Wedding Celebration",
+    "category": "events weddings",
+    "image_path": "assets/images/img14.webp",
+    "layout_class": "port-b19",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-16",
+    "title": "Fine Art Veil Silhouette",
+    "alt": "Fine Art Veil Silhouette",
+    "category": "weddings",
+    "image_path": "assets/images/img8.webp",
+    "layout_class": "port-b13",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-17",
+    "title": "Pastoral Heritage Vows",
+    "alt": "Pastoral Heritage Vows",
+    "category": "weddings",
+    "image_path": "assets/images/img9.webp",
+    "layout_class": "port-b14",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-18",
+    "title": "Crimson Sunset Vows",
+    "alt": "Crimson Sunset Vows",
+    "category": "weddings",
+    "image_path": "assets/images/img12.webp",
+    "layout_class": "port-b17",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-19",
+    "title": "Haute Joaillerie & Ruby Glow",
+    "alt": "Haute Joaillerie & Ruby Glow",
+    "category": "portraits editorial",
+    "image_path": "assets/images/img13.webp",
+    "layout_class": "port-b18",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-20",
+    "title": "Bridal Silk in Kinetic Motion",
+    "alt": "Bridal Silk in Kinetic Motion",
+    "category": "weddings editorial",
+    "image_path": "assets/images/img15.webp",
+    "layout_class": "port-b20",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-21",
+    "title": "Ceremonial Rose Petal Shower",
+    "alt": "Ceremonial Rose Petal Shower",
+    "category": "weddings events",
+    "image_path": "assets/images/img16.webp",
+    "layout_class": "port-b21",
+    "block": 3,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-22",
+    "title": "Sartorial Groom Preparation",
+    "alt": "Sartorial Groom Preparation",
+    "category": "weddings portraits",
+    "image_path": "assets/images/img17.webp",
+    "layout_class": "port-b22",
+    "block": 4,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-23",
+    "title": "Vintage Monochrome Repose",
+    "alt": "Vintage Monochrome Repose",
+    "category": "portraits editorial",
+    "image_path": "assets/images/img22.webp",
+    "layout_class": "port-b25",
+    "block": 4,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-24",
+    "title": "Sacred Vows Footwear Reverence",
+    "alt": "Sacred Vows Footwear Reverence",
+    "category": "weddings events",
+    "image_path": "assets/images/img18.webp",
+    "layout_class": "port-b23",
+    "block": 4,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-25",
+    "title": "Linen Studio Character Study",
+    "alt": "Linen Studio Character Study",
+    "category": "portraits",
+    "image_path": "assets/images/img21.webp",
+    "layout_class": "port-b24",
+    "block": 4,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-26",
+    "title": "Vintage Black-Tie Nuptials",
+    "alt": "Vintage Black-Tie Nuptials",
+    "category": "weddings events",
+    "image_path": "assets/images/img28.webp",
+    "layout_class": "port-b26",
+    "block": 4,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  },
+  {
+    "id": "seed-27",
+    "title": "Crimson Allure in Sartorial Black",
+    "alt": "Crimson Allure in Sartorial Black",
+    "category": "portraits editorial",
+    "image_path": "assets/images/img32.webp",
+    "layout_class": "port-b27",
+    "block": 4,
+    "is_default": true,
+    "created_at": "2026-08-01 12:00:00"
+  }
+];
+
+fs.writeFileSync('data/gallery.json', JSON.stringify(updatedGallery, null, 4));
+console.log('Successfully updated data/gallery.json');

@@ -6,14 +6,14 @@
     "location": "Provence, France",
     "service": "Photo + Film",
     "images": [
-      "/assets/images/dduHwIIbbFXsa4T2Mch7Wlcoy4.png",
-      "/assets/images/6qoPiUBAICKELQAWqbCNZidwKQ.png",
-      "/assets/images/suieTU4VmBXixVaTwhoM7p9Q0WU.png",
-      "/assets/images/dkHih50eU20C0AFaBe7jANt5U.png",
-      "/assets/images/YVvJe89es2td7nZqSgfi132k0U.png",
-      "/assets/images/H4UtD50Ug1kmfBdrLv3yKEQNglw.png"
+      "assets/images/glimpse-clara-theo.webp",
+      "assets/images/img1.webp",
+      "assets/images/img2.webp",
+      "assets/images/img3.webp",
+      "assets/images/img4.webp",
+      "assets/images/img5.webp"
     ],
-    "video": "/assets/videos/XbssCZepTmq1ysDC6KyOJoWqM.mp4"
+    "video": "assets/videos/XbssCZepTmq1ysDC6KyOJoWqM.mp4"
   },
   {
     "slug": "isabelle-thomas",
@@ -22,14 +22,14 @@
     "location": "Paris, France",
     "service": "Photography",
     "images": [
-      "/assets/images/WLEdPcTgNBTISQmFusQW0hEHSss.png",
-      "/assets/images/ui2sDLnCJCoWybPuARH7NsBGqf0.png",
-      "/assets/images/jwTMtGqn75DlL0naUw5s7ejYeqk.png",
-      "/assets/images/Vrqm12zt3iEYy32MrVgctwQfyI.png",
-      "/assets/images/JCTm9wytEKNrR3etiVptkQllGnc.png",
-      "/assets/images/0DGXFfA98AkvUw7Cbmypov7C6I.png"
+      "assets/images/glimpse-isabelle-thomas.webp",
+      "assets/images/img6.webp",
+      "assets/images/img7.webp",
+      "assets/images/img8.webp",
+      "assets/images/img9.webp",
+      "assets/images/img10.webp"
     ],
-    "video": null
+    "video": "assets/videos/VZmLq4wWKZmIfxzP4IuYd4H0K2M.mp4"
   },
   {
     "slug": "sophie-luca",
@@ -38,12 +38,12 @@
     "location": "Lake Como, Italy",
     "service": "Photography",
     "images": [
-      "/assets/images/tyLJqX8gbQET4uhqqYt3We2vw.png",
-      "/assets/images/qKEv06WOCxODrJZMRTlLcY9o0.png",
-      "/assets/images/u7eF8zESaIQx3EYeRHv9ZD2JlqE.png",
-      "/assets/images/u1CFcoDsktcXEJAvG5CO2NCjfwI.png",
-      "/assets/images/iisCkSgbcBgCUrw6rWjtq5xG4M.png",
-      "/assets/images/ebEBBAqhMzA4XS7cXetTUDzrpU.png"
+      "assets/images/glimpse-sophie-luca.webp",
+      "assets/images/img11.webp",
+      "assets/images/img12.webp",
+      "assets/images/img13.webp",
+      "assets/images/img14.webp",
+      "assets/images/img15.webp"
     ],
     "video": null
   },
@@ -54,14 +54,14 @@
     "location": "Mallorca, Spain",
     "service": "Photo + Film",
     "images": [
-      "/assets/images/t08lgENNOFurFehR5kdpfYF3Es.png",
-      "/assets/images/v1naYAEwEQQTu2kNcOdPoDl3U.png",
-      "/assets/images/yRtsYoNpV3SObvhjNEneoCV6x3E.png",
-      "/assets/images/tlDNkFwtqh3IWPtxRxvhTOs74.png",
-      "/assets/images/l32dAuLaWvvsiSYIEFVj8jPVHY.png",
-      "/assets/images/tQKyAUeD8NXiOM68yxSAykmnJDA.png"
+      "assets/images/glimpse-amelia-james.webp",
+      "assets/images/img16.webp",
+      "assets/images/img17.webp",
+      "assets/images/img18.webp",
+      "assets/images/img19.webp",
+      "assets/images/img20.webp"
     ],
-    "video": "/assets/videos/6G9mdCDt8oAJzms2BWpDgrQdr8.mp4"
+    "video": "assets/videos/6G9mdCDt8oAJzms2BWpDgrQdr8.mp4"
   },
   {
     "slug": "elena-matteo",
@@ -70,12 +70,12 @@
     "location": "Tuscany, Italy",
     "service": "Photography",
     "images": [
-      "/assets/images/V2qVyLCRyJQ1yUXBBpkLRK2bhU.png",
-      "/assets/images/PvDD8t5UbQ0nRcI8JAjf7mIwkec.png",
-      "/assets/images/6QETwDCscY2U361UOc7RpW3A8.png",
-      "/assets/images/eXuQZAs1IHCgnTbXXb4J01aSf8.png",
-      "/assets/images/qjRuUPRIA41ljZ1eFw3JH7wRG9g.png",
-      "/assets/images/lVFQFeCWvJI0oGecw3SpuAkdWEM.png"
+      "assets/images/glimpse-elena-matteo.webp",
+      "assets/images/img21.webp",
+      "assets/images/img22.webp",
+      "assets/images/img23.webp",
+      "assets/images/img24.webp",
+      "assets/images/img28.webp"
     ],
     "video": null
   },
@@ -86,13 +86,13 @@
     "location": "Tuscany, Italy",
     "service": "Photography + Film",
     "images": [
-      "/assets/images/CpwsFa5ZJ9iYZ4MsPvqSGtc6w.png",
-      "/assets/images/id8nO42aWl1xtWzuVrczbbuWWus.png",
-      "/assets/images/5FVxLPXl7bHRFIxltvQ6Ol5f5HA.png",
-      "/assets/images/5KfOzCUwYK2jacJ8iTfFycycvyk.png",
-      "/assets/images/vopraYHRTUsTIkVyR2ZJhuSSQZE.png",
-      "/assets/images/lxOU4gYddqtGIjCEJR1LiEHVjQ.png"
+      "assets/images/img31.webp",
+      "assets/images/img32.webp",
+      "assets/images/img35.webp",
+      "assets/images/img36.webp",
+      "assets/images/img38.webp",
+      "assets/images/img39.webp"
     ],
-    "video": "/assets/videos/azsg0FVaYMR18Vt1dRYZmbMb8.mp4"
+    "video": "assets/videos/azsg0FVaYMR18Vt1dRYZmbMb8.mp4"
   }
 ]

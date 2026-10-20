@@ -7955,7 +7955,7 @@
     }
     const worksSection = document.querySelector(".works-section");
     if (worksSection) {
-      const ambient = worksSection.querySelector(".works-parallax-ambient");
+      const ambient = worksSection.querySelector(".works-parallax-ambient, .works-obsidian-ambient");
       const watermark = worksSection.querySelector(".works-watermark-text");
       const glimpseHeader = worksSection.querySelector(".glimpse-header");
       const stage = worksSection.querySelector(".glimpse-stage");
@@ -8008,8 +8008,8 @@
             ease: "none",
             scrollTrigger: {
               trigger: glimpseHeader,
-              start: "top 95%",
-              end: "bottom 15%",
+              start: "top 92%",
+              end: "bottom 20%",
               scrub: 0.8
             }
           }
@@ -8568,13 +8568,10 @@
       ".triptych-stacked-img",
       ".axis-overlap-photo",
       ".atelier-frame img",
-      ".testimonial-avatar",
       ".about-pullquote-img",
-      ".how-featured-img",
       ".allure-portrait-img",
       ".contact-arch-photo",
-      ".floral-portrait-img",
-      ".curated-card-avatar"
+      ".floral-portrait-img"
     ];
     const images = document.querySelectorAll(imageSelectors.join(", "));
     if (!images.length) return;
@@ -9204,17 +9201,27 @@
   // js/portfolio-filter.js
   function initPortfolioFilter() {
     const filterBtns = document.querySelectorAll(".portfolio-filter-btn");
-    const items = document.querySelectorAll(".portfolio-grid-item");
-    if (!filterBtns.length || !items.length) return;
+    if (!filterBtns.length) return;
     filterBtns.forEach((btn) => {
+      if (btn.dataset.filterBound === "true") return;
+      btn.dataset.filterBound = "true";
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         filterBtns.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        const filterValue = btn.getAttribute("data-filter");
+        const filterValue = btn.getAttribute("data-filter") || "all";
+        const bentoGrid = document.getElementById("portfolioBentoGrid");
+        if (bentoGrid) {
+          if (filterValue === "all") {
+            bentoGrid.classList.remove("is-filtered");
+          } else {
+            bentoGrid.classList.add("is-filtered");
+          }
+        }
+        const currentItems = document.querySelectorAll(".portfolio-grid-item");
         const matching = [];
         const nonMatching = [];
-        items.forEach((item) => {
+        currentItems.forEach((item) => {
           const itemCategories = item.getAttribute("data-category") || "";
           const match = filterValue === "all" || itemCategories.split(" ").includes(filterValue);
           if (match) {
@@ -9225,22 +9232,33 @@
             nonMatching.push(item);
           }
         });
-        gsapWithCSS.fromTo(
-          matching,
-          { scale: 0.98 },
-          {
-            scale: 1,
-            duration: 0.35,
-            stagger: 0.02,
-            ease: "power2.out",
-            onComplete: () => {
-              matching.forEach((item) => {
-                item.style.removeProperty("transform");
-              });
-              ScrollTrigger2.refresh();
+        if (matching.length > 0) {
+          gsapWithCSS.fromTo(
+            matching,
+            { opacity: 0, y: 12, scale: 0.98 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.35,
+              stagger: 0.02,
+              ease: "power2.out",
+              onComplete: () => {
+                matching.forEach((item) => {
+                  item.style.removeProperty("transform");
+                  item.style.removeProperty("opacity");
+                });
+                if (typeof ScrollTrigger2 !== "undefined" && ScrollTrigger2.refresh) {
+                  ScrollTrigger2.refresh();
+                }
+              }
             }
+          );
+        } else {
+          if (typeof ScrollTrigger2 !== "undefined" && ScrollTrigger2.refresh) {
+            ScrollTrigger2.refresh();
           }
-        );
+        }
       });
     });
   }
@@ -9875,6 +9893,135 @@
     startAutoplay();
   }
 
+  // js/gallery-sync.js
+  var CATEGORY_NAMES = {
+    weddings: "Weddings",
+    portraits: "Studio Portraits",
+    events: "Life Events",
+    editorial: "Editorial & Fine Art",
+    "weddings portraits": "Weddings & Portraits",
+    "editorial portraits": "Editorial & Fine Art",
+    "portraits events": "Studio Portraits",
+    "weddings events": "Weddings & Events",
+    "events portraits": "Life Events",
+    "editorial events": "Editorial & Fine Art",
+    "portraits editorial": "Editorial & Fine Art",
+    "events weddings": "Weddings & Events",
+    "weddings editorial": "Weddings"
+  };
+  async function initGallerySync() {
+    const bentoGrid = document.getElementById("portfolioBentoGrid");
+    if (!bentoGrid) return;
+    try {
+      const res = await fetch("api/gallery.php");
+      if (!res.ok) return;
+      const json = await res.json();
+      if (!json.success || !Array.isArray(json.data)) return;
+      const items = json.data;
+      if (items.length === 0) return;
+      const dynamicItems = items.filter((item) => !item.is_default && (!item.id || !item.id.startsWith("seed-")));
+      items.forEach((item) => {
+        if (item.is_default && item.layout_class) {
+          const el = bentoGrid.querySelector(`.${item.layout_class}`);
+          if (el) {
+            if (item.category) el.setAttribute("data-category", item.category);
+            const img = el.querySelector("img");
+            if (img) {
+              if (item.title) img.setAttribute("alt", item.alt || item.title);
+              if (item.image_path) img.setAttribute("src", item.image_path);
+            }
+            const titleSpan = el.querySelector(".port-overlay-title");
+            if (titleSpan && item.title) titleSpan.textContent = item.title;
+            const catSpan = el.querySelector(".port-overlay-cat");
+            if (catSpan && item.category) catSpan.textContent = CATEGORY_NAMES[item.category] || item.category;
+          }
+        }
+      });
+      let dynamicBlock = document.getElementById("portfolioDynamicBlock");
+      if (dynamicItems.length > 0) {
+        if (!dynamicBlock) {
+          dynamicBlock = document.createElement("div");
+          dynamicBlock.className = "port-block port-block-dynamic";
+          dynamicBlock.id = "portfolioDynamicBlock";
+          bentoGrid.appendChild(dynamicBlock);
+        }
+        dynamicBlock.innerHTML = "";
+        dynamicItems.forEach((item) => {
+          const catLabel = CATEGORY_NAMES[item.category] || item.category || "Portfolio";
+          const card = document.createElement("div");
+          card.className = `portfolio-grid-item ${item.layout_class || ""}`;
+          card.setAttribute("data-category", item.category || "weddings");
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("role", "button");
+          card.setAttribute("aria-label", `Open ${item.title}`);
+          card.innerHTML = `
+          <div class="portfolio-img-box">
+            <img src="${item.image_path}" alt="${item.alt || item.title}" loading="lazy">
+            <div class="port-tile-overlay">
+              <span class="port-overlay-cat">${catLabel}</span>
+              <span class="port-overlay-title">${item.title}</span>
+            </div>
+          </div>
+        `;
+          dynamicBlock.appendChild(card);
+        });
+      } else if (dynamicBlock) {
+        dynamicBlock.remove();
+      }
+      initPortfolioFilter();
+      if (typeof ScrollTrigger2 !== "undefined" && ScrollTrigger2.refresh) {
+        ScrollTrigger2.refresh();
+      }
+    } catch (err) {
+      console.debug("Gallery sync fallback to static markup:", err);
+    }
+  }
+
+  // js/about-sync.js
+  async function initAboutSync() {
+    const storySection = document.getElementById("about-story") || document.querySelector(".about-story-section");
+    if (!storySection) return;
+    try {
+      const res = await fetch("api/about.php");
+      if (!res.ok) return;
+      const json = await res.json();
+      if (!json.success || !json.data) return;
+      const data = json.data;
+      const heroTitle = document.querySelector(".about-hero-title");
+      if (heroTitle && data.hero_title) heroTitle.textContent = data.hero_title;
+      const heroSubtitle = document.querySelector(".about-hero-subtitle");
+      if (heroSubtitle && data.hero_subtitle) heroSubtitle.textContent = data.hero_subtitle;
+      const eyebrow = document.querySelector(".about-story-eyebrow");
+      if (eyebrow && data.story_eyebrow) eyebrow.textContent = data.story_eyebrow;
+      const manifesto = document.querySelector(".about-story-manifesto");
+      if (manifesto && data.story_manifesto) manifesto.textContent = data.story_manifesto;
+      if (data.story_paragraphs && Array.isArray(data.story_paragraphs) && data.story_paragraphs.length > 0) {
+        const textGrid = document.querySelector(".about-story-text-grid");
+        if (textGrid) {
+          const mid = Math.ceil(data.story_paragraphs.length / 2);
+          const col1 = data.story_paragraphs.slice(0, mid);
+          const col2 = data.story_paragraphs.slice(mid);
+          textGrid.innerHTML = `
+          <div class="about-story-col">
+            ${col1.map((p) => `<p>${p}</p>`).join("")}
+          </div>
+          <div class="about-story-col">
+            ${col2.map((p) => `<p>${p}</p>`).join("")}
+          </div>
+        `;
+        }
+      }
+      const quoteText = document.querySelector(".about-pullquote-text");
+      if (quoteText && data.pullquote_text) quoteText.textContent = data.pullquote_text;
+      const quoteDesc = document.querySelector(".about-pullquote-desc");
+      if (quoteDesc && data.pullquote_desc) quoteDesc.textContent = data.pullquote_desc;
+      const quoteAuthor = document.querySelector(".about-pullquote-author");
+      if (quoteAuthor && data.pullquote_author) quoteAuthor.textContent = data.pullquote_author;
+    } catch (err) {
+      console.debug("About sync fallback to static markup:", err);
+    }
+  }
+
   // js/main.js
   gsapWithCSS.registerPlugin(ScrollTrigger2);
   document.addEventListener("DOMContentLoaded", () => {
@@ -9906,6 +10053,12 @@
     initForms();
     initBookingSlideshow();
     initWorksDeck();
+    if (document.querySelector("#portfolioBentoGrid")) {
+      initGallerySync();
+    }
+    if (document.querySelector("#about-story") || document.querySelector(".about-story-section")) {
+      initAboutSync();
+    }
     if (document.querySelector("#work-detail-hero-section") || document.querySelector(".work-detail-grid")) {
       initWorkDetail();
     }

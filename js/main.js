@@ -13,6 +13,8 @@ import { initForms } from './forms.js';
 import { initWorkDetail } from './work-detail.js';
 import { initBookingSlideshow } from './booking-slideshow.js';
 import { initWorksDeck } from './works-deck.js';
+import { initGallerySync } from './gallery-sync.js';
+import { initAboutSync } from './about-sync.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,6 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initForms();
   initBookingSlideshow();
   initWorksDeck();
+
+  if (document.querySelector('#portfolioBentoGrid')) {
+    initGallerySync();
+  }
+
+  if (document.querySelector('#about-story') || document.querySelector('.about-story-section')) {
+    initAboutSync();
+  }
 
   if (document.querySelector('#work-detail-hero-section') || document.querySelector('.work-detail-grid')) {
     initWorkDetail();

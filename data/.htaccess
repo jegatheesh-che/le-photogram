@@ -1,0 +1,7 @@
+# Deny all direct web access to JSON data files
+Order Deny,Allow
+Deny from all
+
+<FilesMatch ".*">
+    Require all denied
+</FilesMatch>

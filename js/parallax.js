@@ -245,7 +245,7 @@ export function initParallax() {
   // 4. "A GLIMPSE INTO OUR WORK" Framer Reference Parallax Architecture
   const worksSection = document.querySelector('.works-section');
   if (worksSection) {
-    const ambient = worksSection.querySelector('.works-parallax-ambient');
+    const ambient = worksSection.querySelector('.works-parallax-ambient, .works-obsidian-ambient');
     const watermark = worksSection.querySelector('.works-watermark-text');
     const glimpseHeader = worksSection.querySelector('.glimpse-header');
     const stage = worksSection.querySelector('.glimpse-stage');
@@ -304,8 +304,8 @@ export function initParallax() {
           ease: 'none',
           scrollTrigger: {
             trigger: glimpseHeader,
-            start: 'top 95%',
-            end: 'bottom 15%',
+            start: 'top 92%',
+            end: 'bottom 20%',
             scrub: 0.8,
           },
         }
