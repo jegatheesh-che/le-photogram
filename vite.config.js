@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 const rootDir = import.meta.dirname || process.cwd();
 
 export default defineConfig({
+  base: './',
   build: {
     rollupOptions: {
       input: {

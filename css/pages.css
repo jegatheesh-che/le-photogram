@@ -2466,7 +2466,7 @@ body:not(.home-page) .site-header {
   aspect-ratio: 4 / 3 !important;
   width: 100% !important;
   height: 100% !important;
-  opacity: 1 !important;
+  opacity: 1;
   filter: none !important;
 }
 

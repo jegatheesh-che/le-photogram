@@ -15,14 +15,18 @@ export function initNav() {
   }, { passive: true });
 
   // Sync active navigation link across desktop and mobile
-  const currentPath = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
-  const cleanPath = currentPath.split('?')[0].split('#')[0];
+  const pathSegments = window.location.pathname.split('/').filter(Boolean);
+  let lastSegment = pathSegments.pop() || 'index.html';
+  if (!lastSegment.includes('.') || lastSegment === 'le-photogram') {
+    lastSegment = 'index.html';
+  }
+  const cleanPath = lastSegment.split('?')[0].split('#')[0];
 
   document.querySelectorAll('.nav-links .nav-link, .mobile-nav-links a, .mobile-sheet-menu .mobile-menu-item, .mobile-menu-signout').forEach((link) => {
     const rawHref = link.getAttribute('href');
     if (!rawHref) return;
     const linkPath = rawHref.split('?')[0].split('#')[0].split('/').filter(Boolean).pop();
-    if (linkPath === cleanPath || (cleanPath === 'index.html' && (linkPath === 'index.html' || rawHref === './' || rawHref === '/'))) {
+    if (linkPath === cleanPath || (cleanPath === 'index.html' && (linkPath === 'index.html' || rawHref === './' || rawHref === '/' || rawHref === 'index.html'))) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
     }

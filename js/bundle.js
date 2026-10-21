@@ -7659,13 +7659,17 @@
         header?.classList.remove("scrolled");
       }
     }, { passive: true });
-    const currentPath = window.location.pathname.split("/").filter(Boolean).pop() || "index.html";
-    const cleanPath = currentPath.split("?")[0].split("#")[0];
+    const pathSegments = window.location.pathname.split("/").filter(Boolean);
+    let lastSegment = pathSegments.pop() || "index.html";
+    if (!lastSegment.includes(".") || lastSegment === "le-photogram") {
+      lastSegment = "index.html";
+    }
+    const cleanPath = lastSegment.split("?")[0].split("#")[0];
     document.querySelectorAll(".nav-links .nav-link, .mobile-nav-links a, .mobile-sheet-menu .mobile-menu-item, .mobile-menu-signout").forEach((link) => {
       const rawHref = link.getAttribute("href");
       if (!rawHref) return;
       const linkPath = rawHref.split("?")[0].split("#")[0].split("/").filter(Boolean).pop();
-      if (linkPath === cleanPath || cleanPath === "index.html" && (linkPath === "index.html" || rawHref === "./" || rawHref === "/")) {
+      if (linkPath === cleanPath || cleanPath === "index.html" && (linkPath === "index.html" || rawHref === "./" || rawHref === "/" || rawHref === "index.html")) {
         link.classList.add("active");
         link.setAttribute("aria-current", "page");
       }
@@ -8297,7 +8301,7 @@
         );
       }
     }
-    const portfolioGrid = document.querySelector(".portfolio-grid-layout");
+    const portfolioGrid = document.querySelector(".portfolio-grid-layout, .portfolio-bento-grid, #portfolioBentoGrid");
     if (portfolioGrid) {
       ScrollTrigger2.batch(".portfolio-grid-item", {
         start: "top 88%",
@@ -8480,7 +8484,7 @@
   }
   function initTactileInteractions() {
     const interactivePills = document.querySelectorAll(
-      ".btn-pill, .btn-pill-dark, .contact-pill-btn, .ref-back-btn, .axis-explore-link"
+      ".btn-pill, .btn-pill-dark, .contact-pill-btn, .ref-back-btn, .axis-explore-link, .glimpse-view-more-btn, .triptych-cta-link, .film-slide-btn, .ref-submit-btn, .arrow-btn, .portfolio-filter-btn, .faq-minimal-pill, .whatsapp-float-btn"
     );
     interactivePills.forEach((btn) => {
       btn.addEventListener("mouseenter", () => {
@@ -9913,12 +9917,31 @@
     const bentoGrid = document.getElementById("portfolioBentoGrid");
     if (!bentoGrid) return;
     try {
-      const res = await fetch("api/gallery.php");
-      if (!res.ok) return;
-      const json = await res.json();
-      if (!json.success || !Array.isArray(json.data)) return;
-      const items = json.data;
-      if (items.length === 0) return;
+      let items = null;
+      try {
+        const res = await fetch("api/gallery.php");
+        const contentType = res.headers.get("content-type") || "";
+        if (res.ok && contentType.includes("application/json")) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+            items = json.data;
+          }
+        }
+      } catch (e) {
+      }
+      if (!items) {
+        try {
+          const staticRes = await fetch("data/gallery.json");
+          if (staticRes.ok) {
+            const staticJson = await staticRes.json();
+            if (Array.isArray(staticJson) && staticJson.length > 0) {
+              items = staticJson;
+            }
+          }
+        } catch (e) {
+        }
+      }
+      if (!items || items.length === 0) return;
       const dynamicItems = items.filter((item) => !item.is_default && (!item.id || !item.id.startsWith("seed-")));
       items.forEach((item) => {
         if (item.is_default && item.layout_class) {
@@ -9982,11 +10005,31 @@
     const storySection = document.getElementById("about-story") || document.querySelector(".about-story-section");
     if (!storySection) return;
     try {
-      const res = await fetch("api/about.php");
-      if (!res.ok) return;
-      const json = await res.json();
-      if (!json.success || !json.data) return;
-      const data = json.data;
+      let data = null;
+      try {
+        const res = await fetch("api/about.php");
+        const contentType = res.headers.get("content-type") || "";
+        if (res.ok && contentType.includes("application/json")) {
+          const json = await res.json();
+          if (json.success && json.data) {
+            data = json.data;
+          }
+        }
+      } catch (e) {
+      }
+      if (!data) {
+        try {
+          const staticRes = await fetch("data/about.json");
+          if (staticRes.ok) {
+            const staticJson = await staticRes.json();
+            if (staticJson && typeof staticJson === "object") {
+              data = staticJson;
+            }
+          }
+        } catch (e) {
+        }
+      }
+      if (!data) return;
       const heroTitle = document.querySelector(".about-hero-title");
       if (heroTitle && data.hero_title) heroTitle.textContent = data.hero_title;
       const heroSubtitle = document.querySelector(".about-hero-subtitle");

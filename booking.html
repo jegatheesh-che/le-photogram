@@ -214,7 +214,7 @@
         <div class="ref-form-card">
           <!-- Top Back Chevron -->
           <div class="ref-form-top-bar">
-            <button type="button" class="ref-back-btn" aria-label="Go back" onclick="history.back()">
+            <button type="button" class="ref-back-btn" aria-label="Go back" onclick="if(window.history.length > 1 && document.referrer) { window.history.back(); } else { window.location.href = 'index.html'; }">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M15 18l-6-6 6-6"/>
               </svg>

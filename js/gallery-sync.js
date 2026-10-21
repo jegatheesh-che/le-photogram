@@ -26,14 +26,37 @@ export async function initGallerySync() {
   if (!bentoGrid) return;
 
   try {
-    const res = await fetch('api/gallery.php');
-    if (!res.ok) return;
+    let items = null;
 
-    const json = await res.json();
-    if (!json.success || !Array.isArray(json.data)) return;
+    try {
+      const res = await fetch('api/gallery.php');
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          items = json.data;
+        }
+      }
+    } catch (e) {
+      // PHP API not present or returned non-JSON
+    }
 
-    const items = json.data;
-    if (items.length === 0) return;
+    // Seamless fallback to static data/gallery.json for GitHub Pages / static hosting
+    if (!items) {
+      try {
+        const staticRes = await fetch('data/gallery.json');
+        if (staticRes.ok) {
+          const staticJson = await staticRes.json();
+          if (Array.isArray(staticJson) && staticJson.length > 0) {
+            items = staticJson;
+          }
+        }
+      } catch (e) {
+        // Static fetch fallback
+      }
+    }
+
+    if (!items || items.length === 0) return;
 
     // 1. Identify dynamic uploaded items (non-default or block >= 5)
     const dynamicItems = items.filter((item) => !item.is_default && (!item.id || !item.id.startsWith('seed-')));

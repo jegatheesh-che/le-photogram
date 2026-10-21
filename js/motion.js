@@ -261,7 +261,7 @@ function initScrollReveals() {
   }
 
   // C. Portfolio Grid Layout (Staggered Story Reveal)
-  const portfolioGrid = document.querySelector('.portfolio-grid-layout');
+  const portfolioGrid = document.querySelector('.portfolio-grid-layout, .portfolio-bento-grid, #portfolioBentoGrid');
   if (portfolioGrid) {
     ScrollTrigger.batch('.portfolio-grid-item', {
       start: 'top 88%',
@@ -477,7 +477,7 @@ function initHowCurtainReveal() {
  */
 function initTactileInteractions() {
   const interactivePills = document.querySelectorAll(
-    '.btn-pill, .btn-pill-dark, .contact-pill-btn, .ref-back-btn, .axis-explore-link'
+    '.btn-pill, .btn-pill-dark, .contact-pill-btn, .ref-back-btn, .axis-explore-link, .glimpse-view-more-btn, .triptych-cta-link, .film-slide-btn, .ref-submit-btn, .arrow-btn, .portfolio-filter-btn, .faq-minimal-pill, .whatsapp-float-btn'
   );
 
   interactivePills.forEach((btn) => {

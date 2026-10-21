@@ -7,13 +7,37 @@ export async function initAboutSync() {
   if (!storySection) return;
 
   try {
-    const res = await fetch('api/about.php');
-    if (!res.ok) return;
+    let data = null;
 
-    const json = await res.json();
-    if (!json.success || !json.data) return;
+    try {
+      const res = await fetch('api/about.php');
+      const contentType = res.headers.get('content-type') || '';
+      if (res.ok && contentType.includes('application/json')) {
+        const json = await res.json();
+        if (json.success && json.data) {
+          data = json.data;
+        }
+      }
+    } catch (e) {
+      // PHP API not present or returned non-JSON
+    }
 
-    const data = json.data;
+    // Seamless fallback to static data/about.json for GitHub Pages / static hosting
+    if (!data) {
+      try {
+        const staticRes = await fetch('data/about.json');
+        if (staticRes.ok) {
+          const staticJson = await staticRes.json();
+          if (staticJson && typeof staticJson === 'object') {
+            data = staticJson;
+          }
+        }
+      } catch (e) {
+        // Static fetch fallback
+      }
+    }
+
+    if (!data) return;
 
     // Update Hero elements if present
     const heroTitle = document.querySelector('.about-hero-title');
